@@ -1,0 +1,11 @@
+<isdecorate template="common/layout/page">
+
+  <h1>HOLA</h1>
+
+
+  <a class="continue-shopping-link" href="${URLUtils.url('Home-Show')}"
+    title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+    ${Resource.msg('link.continue.shopping', 'cart', null)}
+  </a>
+
+</isdecorate>
