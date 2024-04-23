@@ -17,3 +17,4 @@ test/appium/webdriver/config.json
 .idea
 test/acceptance/report
 test/integration/config.json
+cartridges/*/cartridge/static
