@@ -20,7 +20,7 @@ var server = require('server');
  * @param {serverfunction} - get
  */
 server.get('Show', server.middleware.https, function (req, res, next) {
-    res.render('testShow');
+    res.render('sections/testShow');
     next();
 });
 
