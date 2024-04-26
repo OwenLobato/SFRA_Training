@@ -1,8 +1,13 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+
 <isdecorate template="common/layout/page">
   <isscript>
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addCss('css/testStyles.css');
   </isscript>
+
+  <iscontentasset aid="content-sections" />
 
   <div class="special-section">
     <h2 class="section-title">${Resource.msg('special.section.title', 'special', null)}</h2>
