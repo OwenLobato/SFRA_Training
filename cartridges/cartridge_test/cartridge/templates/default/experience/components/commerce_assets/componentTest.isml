@@ -1,0 +1,8 @@
+<div>
+    <img 
+        src="${pdict.imageTest.src.mobile}"
+        style="--focal-point-x:${pdict.imageTest.focalPointX}; --focal-point-y:${pdict.image.focalPointY}"
+        alt=""
+    />
+    <p>${pdict.textTest}</p>
+</div>
