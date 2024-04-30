@@ -1,9 +1,9 @@
-@import "./variables";
+@import "../variables";
 @import "./list";
 
 .special-section {
     font-size: size(lg);
-    background-color: $white;
+    background-color: $white2;
     padding: 20px;
     margin: 15px auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -29,7 +29,7 @@
 }
 
 .section-title {
-    color: $primary-color;
+    color: $grey8;
     text-align: center;
     font-size: size();
     font-weight: bold;
@@ -57,13 +57,13 @@
     }
 
     h3 {
-        color: $primary-color;
+        color: $grey8;
         font-size: size(sm);
         margin-top: 10px;
     }
 
     p {
-        color: $secondary-color;
+        color: $orange;
         font-size: size(sm) + 2;
         font-weight: bold;
         margin-top: 5px;
