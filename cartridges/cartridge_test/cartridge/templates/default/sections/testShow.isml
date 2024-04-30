@@ -7,6 +7,8 @@
     assets.addCss('css/testStyles.css');
   </isscript>
 
+  <h1 class="text-center my-2">${Resource.msg('special.section.welcome', 'special', null)} ${pdict.name}</h1>
+
   <iscontentasset aid="content-sections" />
 
   <div class="special-section">
