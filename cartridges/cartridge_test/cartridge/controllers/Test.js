@@ -7,6 +7,10 @@
 var server = require('server');
 server.extend(module.superModule);
 
+var cache = require('*/cartridge/scripts/middleware/cache');
+var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
+var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
+
 /**
  * Test-Show : The Test-Show endpoint will render the shopper's test page. Once a shopper logs in they will see is a dashboard that displays profile, address, payment and order information.
  * @name Base/Test-Show
@@ -20,11 +24,27 @@ server.extend(module.superModule);
  * @param {renders} - isml
  * @param {serverfunction} - get
  */
-server.append('Show', server.middleware.https, function (req, res, next) {
-    var name = 'Owen Lobato';
-    res.setViewData({ name: name });
-    res.render('sections/testShow');
-    next();
-});
+server.replace(
+    'Show',
+    consentTracking.consent,
+    cache.applyDefaultCache,
+    function (req, res, next) {
+        var Site = require('dw/system/Site');
+        var PageMgr = require('dw/experience/PageMgr');
+        var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
+
+        pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
+
+        var page = PageMgr.getPage('test-store');
+
+        if (page && page.isVisible()) {
+            res.page('test-store');
+        } else {
+            res.render('sections/testShow', { name: 'Owen Lobato' });
+        }
+        next();
+    },
+    pageMetaData.computedPageMetaData
+);
 
 module.exports = server.exports();
