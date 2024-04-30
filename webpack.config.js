@@ -58,7 +58,7 @@ module.exports = [
         entry: scssFiles,
         output: {
             path: path.resolve(
-                './cartridges/app_storefront_base/cartridge/static'
+                './cartridges/cartridge_test/cartridge/static'
             )
         },
         module: {
