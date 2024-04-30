@@ -5,7 +5,6 @@
  */
 
 var server = require('server');
-server.extend(module.superModule);
 
 /**
  * Test-Show : The Test-Show endpoint will render the shopper's test page. Once a shopper logs in they will see is a dashboard that displays profile, address, payment and order information.
@@ -20,8 +19,8 @@ server.extend(module.superModule);
  * @param {renders} - isml
  * @param {serverfunction} - get
  */
-server.append('Show', server.middleware.https, function (req, res, next) {
-    var name = 'Owen Lobato';
+server.get('Show', server.middleware.https, function (req, res, next) {
+    var name = 'Pepe Grillo';
     res.render('sections/testShow', { name: name });
     next();
 });
