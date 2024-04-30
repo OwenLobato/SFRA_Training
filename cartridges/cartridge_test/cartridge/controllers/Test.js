@@ -22,7 +22,8 @@ server.extend(module.superModule);
  */
 server.append('Show', server.middleware.https, function (req, res, next) {
     var name = 'Owen Lobato';
-    res.render('sections/testShow', { name: name });
+    res.setViewData({ name: name });
+    res.render('sections/testShow');
     next();
 });
 
