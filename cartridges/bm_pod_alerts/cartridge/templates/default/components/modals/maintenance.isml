@@ -1,0 +1,42 @@
+<div class="modal-container">
+    <div class="column left-column">
+        <div class="row">
+            <span class="label">${Resource.msg('pod.alerts.section.maintenance.table.status', 'podalerts', null)}:</span>
+            <span class="value">${Resource.msg('pod.alerts.section.maintenance.status.' + pdict.status, 'podalerts', pdict.status)}</span>
+        </div>
+        <div class="row">
+            <span class="label">${Resource.msg('pod.alerts.section.maintenance.modal.instances', 'podalerts', null)}:</span>
+            <span class="value">${pdict.pods.join(', ')}</span>
+        </div>
+        <div class="row">
+            <span class="label">${Resource.msg('pod.alerts.section.maintenance.modal.services', 'podalerts', null)}:</span>
+            <span class="value">${pdict.services.join(', ')}</span>
+        </div>
+        <div class="row">
+            <span class="label">${Resource.msg('pod.alerts.section.maintenance.table.type', 'podalerts', null)}:</span>
+            <span class="value">${Resource.msg('pod.alerts.section.maintenance.type.' + pdict.type, 'podalerts', pdict.type)}</span>
+        </div>
+        <div class="row">
+            <span class="label">${Resource.msg('pod.alerts.section.maintenance.modal.availability', 'podalerts', null)}:</span>
+            <span class="value"><isprint value="${pdict.availability}" /></span>
+        </div>
+        <div class="row">
+            <span class="label">${Resource.msg('pod.alerts.section.maintenance.modal.information', 'podalerts', null)}:</span>
+            <span class="value"><isprint value="${pdict.additionalInformation}" encoding="off"/></span>
+        </div>
+    </div>
+    <div class="column right-column">
+        <div class="row">
+            <span class="label">${Resource.msg('pod.alerts.section.messages.table.id', 'podalerts', null) + '#'}:</span>
+            <span class="value">${pdict.ID}</span>
+        </div>
+        <div class="row">
+            <span class="label">${Resource.msg('pod.alerts.section.maintenance.modal.startDate', 'podalerts', null)}:</span>
+            <span class="value">${pdict.startTime}, ${pdict.date}</span>
+        </div>
+        <div class="row">
+            <span class="label">${Resource.msg('pod.alerts.section.maintenance.modal.endDate', 'podalerts', null)}:</span>
+            <span class="value">${pdict.endTime}, ${pdict.endDate}</span>
+        </div>
+    </div>
+</div>

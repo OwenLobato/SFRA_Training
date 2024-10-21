@@ -1,0 +1,9 @@
+<div class="refresh-container">
+    <img src="${URLUtils.staticURL('/icons/refresh.png')}" class="refresh"
+        data-url="${pdict.update.url}"
+        data-refreshurl="${pdict.update.refreshurl}"
+        alt="${Resource.msg('pod.alerts.refresh', 'podalerts', null)}" />
+    <h2><isprint value="${Resource.msgf('pod.alerts.lastupdate', 'podalerts', null, StringUtils.formatCalendar(pdict.update.date))}" encoding="off" /></h2>
+</div>
+
+<script src="${URLUtils.staticURL('/js/refresh.js?v=1.0.3')}"></script>

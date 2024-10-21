@@ -1,0 +1,33 @@
+<div class="modal-container">
+    <div class="column">
+        <div class="main-section">
+            <div class="overall-status-block ${pdict.instanceStatuses[pdict.status]}">
+                <p class="left-text">${Resource.msg('pod.alerts.status.system', 'podalerts', null)}</p>
+                <div class="right-container">
+                    <p class="right-text">${Resource.msg('pod.alerts.status.' + pdict.instanceStatuses[pdict.status], 'podalerts', pdict.status)}</p>
+                    <img src="${URLUtils.staticURL('/icons/service-' + pdict.instanceStatuses[pdict.status] + '.png')}" alt="${Resource.msg('pod.alerts.status.' + pdict.instanceStatuses[pdict.status], 'podalerts', pdict.status)}" />
+                </div>
+            </div>
+
+            <div class="services-block">
+                <isloop items="${pdict.services}" alias="service">
+                    <div class="service">
+                        <div class="service-header">${Resource.msg('pod.alerts.status.service.' + service.key, 'podalerts', service.key)}</div>
+                        <div class="service-body">
+                            <isif condition="${!empty(pdict.affectedServices[service.key])}">
+                                <img src="${URLUtils.staticURL('/icons/service-' + pdict.instanceStatuses[pdict.status] + '.png')}" alt="${Resource.msg('pod.alerts.status.service.' + service.key, 'podalerts', service.key)}" />
+                                <isloop items="${pdict.affectedServices[service.key]}" alias="affected">
+                                    <a href="${'#'}" class="openModal">
+                                        ${affected.id}
+                                    </a>
+                                </isloop>
+                            <iselse/>
+                                <img src="${URLUtils.staticURL('/icons/service-available.png')}" alt="${Resource.msg('pod.alerts.status.service.' + service.key, 'podalerts', service.key)}" />
+                            </isif>
+                        </div>
+                    </div>
+                </isloop>
+            </div>
+        </div>
+    </div>
+</div>

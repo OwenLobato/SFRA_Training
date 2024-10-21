@@ -1,0 +1,33 @@
+.messages-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 1rem;
+}
+
+.messages-table th,
+.messages-table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    text-align: left;
+    border-top: 1px solid #dee2e6;
+}
+
+.messages-table th {
+    font-weight: 600;
+    background-color: #f9fafb;
+    color: #212529;
+    text-transform: uppercase;
+}
+
+.messages-table tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa;
+}
+
+.messages-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.refresh-container {
+    padding-top: 10px;
+}
