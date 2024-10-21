@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="B2CCommerceMaintenances">
+        <display-name xml:lang="x-default">B2C Commerce Maintenances</display-name>
+        <description xml:lang="x-default">Object to store the maintenances for B2C Commerce instances.</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <retention-days>1</retention-days>
+        <key-definition attribute-id="B2CCommerceMaintenances">
+            <display-name xml:lang="x-default">B2CCommerceMaintenances</display-name>
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="data">
+                <display-name xml:lang="x-default">Data</display-name>
+                <description xml:lang="x-default">JSON with data to be displayed.</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="B2C Commerce Maintenances">
+                <display-name xml:lang="x-default">B2C Commerce Maintenances</display-name>
+                <attribute attribute-id="data"/>
+                <attribute attribute-id="creationDate" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="B2CCommerceStatus">
+        <display-name xml:lang="x-default">B2C Commerce Instance Status</display-name>
+        <description xml:lang="x-default">Object to store the status of all B2C Commerce instances.</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <retention-days>1</retention-days>
+        <key-definition attribute-id="B2CCommerceStatus">
+            <display-name xml:lang="x-default">B2CCommerceStatus</display-name>
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="data">
+                <display-name xml:lang="x-default">Data</display-name>
+                <description xml:lang="x-default">JSON with data to be displayed.</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="B2C Commerce Status">
+                <display-name xml:lang="x-default">B2C Commerce Status</display-name>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="data"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="GeneralMessages">
+        <display-name xml:lang="x-default">Salesforce General Messages</display-name>
+        <description xml:lang="x-default">Object to store Salesforce General Messages regarding Service Status.</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <retention-days>1</retention-days>
+        <key-definition attribute-id="GeneralMessages">
+            <display-name xml:lang="x-default">GeneralMessages</display-name>
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="data">
+                <display-name xml:lang="x-default">Data</display-name>
+                <description xml:lang="x-default">JSON with data to be displayed.</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="General Messages">
+                <display-name xml:lang="x-default">General Messages</display-name>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="data"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="PodStatus">
+        <display-name xml:lang="x-default">POD Status</display-name>
+        <description xml:lang="x-default">Current POD Status with Services and Maintenances.</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <retention-days>1</retention-days>
+        <key-definition attribute-id="POD">
+            <display-name xml:lang="x-default">POD</display-name>
+            <description xml:lang="x-default">B2C Commerce POD</description>
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="data">
+                <display-name xml:lang="x-default">Data</display-name>
+                <description xml:lang="x-default">JSON with data to be displayed.</description>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="POD Status">
+                <display-name xml:lang="x-default">POD Status</display-name>
+                <attribute attribute-id="data"/>
+                <attribute attribute-id="creationDate" system="true"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+</metadata>
