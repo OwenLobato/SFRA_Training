@@ -1,0 +1,24 @@
+<iscomment>
+    This custom label is used to include a title on the page with the look & feel of any other title section in Business Manager.
+    It could be possible that this tag doesn't display it properly since classes and styles that depend on Salesforce are being used.
+</iscomment>
+<ismodule name="bmtitle" template="components/bm/title" attribute="title" />
+
+<iscomment>
+    This custom label is used to include a description on the page with the look & feel of any other description section in Business Manager.
+    It could be possible that this tag doesn't display it properly since classes and styles that depend on Salesforce are being used.
+</iscomment>
+<ismodule name="bmdescription" template="components/bm/description" attribute="description" />
+
+<iscomment>
+    This custom label is used to include a breadcrumb on the page with the look & feel of any other breadcrumb in Business Manager.
+    It could be possible that this tag doesn't display it properly since classes and styles that depend on Salesforce are being used.
+</iscomment>
+<ismodule
+    name="bmbreadcrumb"
+    template="components/bm/breadcrumb"
+    attribute="link1"
+    attribute="title1"
+    attribute="link2"
+    attribute="title2"
+    attribute="currentsection" />

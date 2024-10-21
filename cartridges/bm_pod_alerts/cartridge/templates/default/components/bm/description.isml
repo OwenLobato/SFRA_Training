@@ -1,0 +1,9 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td class="table_title_description w e s">
+                <isprint value="${pdict.description}" encoding="off" />
+            </td>
+        </tr>
+    </tbody>
+</table>
