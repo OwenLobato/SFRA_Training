@@ -1,0 +1,44 @@
+{
+    "alerts": [
+        {
+            "alert-id": "podalerts_pod_service_incident",
+            "menu-action": "pod_alerts_podstatus",
+            "message-resource-id": "podalerts_incident_detected",
+            "priority": "WARN",
+            "remediation": {
+                "pipeline":"PODAlerts",
+                "start-node":"MyPOD"
+            }
+        },
+        {
+            "alert-id": "podalerts_pod_service_incident_solved",
+            "menu-action": "pod_alerts_podstatus",
+            "message-resource-id": "podalerts_pod_service_incident_solved",
+            "priority": "INFO",
+            "remediation": {
+                "pipeline":"PODAlerts",
+                "start-node":"MyPOD"
+            }
+        },
+        {
+            "alert-id":"podalerts_pod_maintenance",
+            "menu-action":"pod_alerts_podstatus",
+            "message-resource-id":"podalerts_pod_maintenance",
+            "priority":"INFO",
+            "remediation": {
+                "pipeline":"PODAlerts",
+                "start-node":"MyPOD"
+            }
+        },
+        {
+            "alert-id":"podalerts_general_message",
+            "menu-action":"pod_alerts_messages",
+            "message-resource-id":"podalerts_general_message",
+            "priority":"INFO",
+            "remediation": {
+                "pipeline":"PODAlerts",
+                "start-node":"Messages"
+            }
+        }
+    ]
+}
