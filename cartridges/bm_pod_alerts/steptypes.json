@@ -1,0 +1,62 @@
+{
+	"step-types":{
+	    "script-module-step":[
+			{
+				"@type-id":"custom.podalerts.podstatus",
+				"@supports-parallel-execution":"false",
+				"@supports-site-context":"false",
+				"@supports-organization-context":"true",
+				"description":"Check for any incidents in our POD services or new scheduled maintenance.",
+				"module":"bm_pod_alerts/cartridge/scripts/jobsteps/podstatus.js",
+				"function":"execute",
+				"transactional":"true",
+				"timeout-in-seconds":"180",
+				"parameters":{},
+				"status-codes":{
+					"status":[
+						{
+							"@code":"ERROR",
+							"description":"An error occurred, please re-run the job"
+						},
+						{
+							"@code" : "ALERT",
+							"description" : "A Business Manager Alert has been created."
+						},
+						{
+							"@code" : "FINISHED",
+							"description" : "The process has completed as expected, but there is nothing new to report."
+						}
+					]
+				}
+	        },
+            {
+                "@type-id":"custom.podalerts.messages",
+				"@supports-parallel-execution":"false",
+				"@supports-site-context":"false",
+				"@supports-organization-context":"true",
+				"description":"Check for any new general messages from Salesforce to notify",
+				"module":"bm_pod_alerts/cartridge/scripts/jobsteps/messages.js",
+				"function":"execute",
+				"transactional":"true",
+				"timeout-in-seconds":"180",
+				"parameters":{},
+				"status-codes":{
+					"status":[
+						{
+							"@code":"ERROR",
+							"description":"An error occurred, please re-run the job"
+						},
+						{
+							"@code" : "ALERT",
+							"description" : "A Business Manager Alert has been created."
+						},
+						{
+							"@code" : "FINISHED",
+							"description" : "The process has completed as expected, but there is nothing new to report."
+						}
+					]
+				}
+            }
+	    ]
+    }
+}
