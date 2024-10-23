@@ -18,3 +18,5 @@ test/appium/webdriver/config.json
 test/acceptance/report
 test/integration/config.json
 cartridges/*/cartridge/static
+!cartridges/bm_pod_alerts/cartridge/static
+.nyc_output

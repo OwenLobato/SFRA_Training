@@ -7,8 +7,12 @@
     "node": ">=4.0"
   },
   "scripts": {
-    "test": "sgmf-scripts --test test/unit/**/*.js",
-    "cover": "sgmf-scripts --cover 'test/unit'",
+    "testDefault": "sgmf-scripts --test test/unit/**/*.js",
+    "testMocha": "npx mocha test/unit/**/*.js --recursive",
+    "coverDefault": "sgmf-scripts --cover 'test/unit'",
+    "coverMocha": "nyc npm run test",
+    "test:podalerts": "npx mocha test/unit/bm_pod_alerts/**/*.js --recursive",
+    "cover:podalerts": "nyc npm run test:podalerts",
     "test:integration": "sgmf-scripts --integration 'test/integration/**/*.js'",
     "test:acceptance:custom": "npx codeceptjs run --plugins retryFailedStep --profile",
     "test:acceptance:deep": "npx codeceptjs run --plugins retryFailedStep --grep '(?=.*)^(?!.*@mobile)^(?!.*@tablet)^(?!.*@pageDesigner)' --profile",
