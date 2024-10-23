@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; 
 
 const Alerts = require('dw/alert/Alerts');
 const Transaction = require('dw/system/Transaction');
