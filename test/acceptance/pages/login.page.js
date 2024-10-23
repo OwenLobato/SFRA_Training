@@ -1,5 +1,3 @@
-'use strict';
-
 const I = actor();
 
 module.exports = {
@@ -30,7 +28,6 @@ module.exports = {
         loginBtnLink: 'a.nav-link'
     },
     login(email, password) {
-        I.scrollTo(this.locators.emailLogin);
         // fill login form
         I.waitForElement(this.locators.emailLogin);
         I.waitForElement(this.locators.passwordLogin);
@@ -40,7 +37,6 @@ module.exports = {
         // click login
         I.waitForElement(this.locators.primaryButton);
         I.click(this.locators.primaryButton);
-        I.wait(1);
     },
     createAccount(fName, lName, phone, email, password) {
         I.fillField(this.locators.firstName, fName);

@@ -1,5 +1,3 @@
-'use strict';
-
 const I = actor();
 
 module.exports = {
@@ -64,12 +62,10 @@ module.exports = {
         I.fillField(this.locators.lName, lName);
         I.fillField(this.locators.address1, address1);
         I.waitForElement(this.locators.country);
-        I.wait(2);
         I.selectOption(this.locators.country, country);
         I.waitForElement(this.locators.state);
-        I.wait(2);
         I.selectOption(this.locators.state, state);
-        I.wait(2);
+        I.wait(3);
         I.fillField(this.locators.city, city);
         I.fillField(this.locators.phone, phone);
         I.fillField(this.locators.zip, zipcode);
@@ -94,25 +90,16 @@ module.exports = {
         I.see(city, this.locators.checkout_prefilledShippingInfo);
         I.see(stateAbr, this.locators.checkout_prefilledShippingInfo);
         I.see(zipcode, this.locators.checkout_prefilledShippingInfo);
-
-        I.scrollTo(this.locators.payPhone);
-        I.wait(2);
         I.fillField(this.locators.payPhone, phone);
         I.fillField(this.locators.payCard, ccNum);
-
         I.waitForElement(this.locators.payExpMonth, expMonth);
-        I.wait(1);
         I.selectOption(this.locators.payExpMonth, expMonth);
-
         I.waitForElement(this.locators.payExpYear, expYear);
         I.selectOption(this.locators.payExpYear, expYear);
-        I.wait(1);
         I.waitForElement(this.locators.paySecCode);
         I.fillField(this.locators.paySecCode, ccSecCode);
     },
     fillPaymentInfoRegistered(phone, ccSecCode) {
-        I.scrollTo(this.locators.payPhone);
-        I.wait(2);
         I.fillField(this.locators.payPhone, phone);
         I.waitForElement(this.locators.paySecCodeSaved);
         I.fillField(this.locators.paySecCodeSaved, ccSecCode);
@@ -187,7 +174,6 @@ module.exports = {
         I.see(city, this.locators.checkout_shippingSection);
         I.see(zip, this.locators.checkout_shippingSection);
         I.see(phone, this.locators.checkout_shippingSection);
-        I.wait(3);
 
         // verify billing address is correct
         I.scrollTo(this.locators.checkout_paymentSection);
@@ -204,7 +190,6 @@ module.exports = {
             ccNum.replace(/\d(?=\d{4})/g, '*'),
             this.locators.checkout_paymentSection
         );
-        I.wait(3);
         I.see(ccExpDate, this.locators.checkout_paymentSection);
 
         // verify product info is correct
@@ -233,7 +218,6 @@ module.exports = {
         estimatedTotal
     ) {
         // verify order is place successfully by verifying the order confirmation page
-        I.waitForElement(this.locators.orderConf_thankYou);
         I.scrollTo(this.locators.orderConf_thankYou);
         I.see('Thank you for your order.', this.locators.orderConf_thankYou);
 
@@ -262,7 +246,6 @@ module.exports = {
             ccNum.replace(/\d(?=\d{4})/g, '*'),
             this.locators.orderConf_paymentSection
         );
-        I.wait(2);
         I.see(ccExpDate, this.locators.orderConf_paymentSection);
 
         // verify product info is correct

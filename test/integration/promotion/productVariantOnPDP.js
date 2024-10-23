@@ -1,5 +1,3 @@
-'use strict';
-
 var assert = require('chai').assert;
 var request = require('request-promise');
 var config = require('../it.config');
@@ -27,12 +25,8 @@ describe('Product Variant Promotion on Product Details Page', function () {
         myGetRequest.url = config.baseUrl + '/Product-Variation?pid='
             + mainPid + '&dwvar_' + mainPid + '_color=TURQUSI&quantity=1';
 
-        var expectedSalesPrice = {
-            value: 23.99, currency: 'USD', formatted: '$23.99', 'decimalPrice': '23.99'
-        };
-        var expectedListPrice = {
-            value: 39.5, currency: 'USD', formatted: '$39.50', 'decimalPrice': '39.50'
-        };
+        var expectedSalesPrice = { value: 23.99, currency: 'USD', formatted: '$23.99', 'decimalPrice': '23.99' };
+        var expectedListPrice = { value: 39.5, currency: 'USD', formatted: '$39.50', 'decimalPrice': '39.50' };
 
         var expectedPromotion = {
             'promotions': [

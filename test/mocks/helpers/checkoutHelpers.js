@@ -1,3 +1,6 @@
+'use strict';
+
+
 var proxyquire = require('proxyquire').noCallThru().noPreserveCache();
 
 var collections = require('../util/collections');
@@ -7,6 +10,7 @@ var orderModel = require('../models/order');
 var renderTemplateHelper = require('./renderTemplateHelper');
 var shippingHelpers = require('./shippingHelpers');
 var basketMgr = require('../dw/order/BasketMgr');
+
 
 var server = {
     forms: {

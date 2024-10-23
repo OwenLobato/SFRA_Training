@@ -1,8 +1,4 @@
-'use strict';
-
-const {
-    I, data, homePage, loginPage
-} = inject();
+const { I, data, homePage, loginPage } = inject();
 
 // For going to the login landing page
 Given('shopper goes to the Login Page', () => {
@@ -27,7 +23,7 @@ Given('shopper logs into the website on phone', () => {
     I.click(loginPage.locators.hamburgerLogin);
 
     let locator = locate(loginPage.locators.loginBtn)
-        .withChild(loginPage.locators.loginBtnLink);
+      .withChild(loginPage.locators.loginBtnLink);
     I.waitForElement(locator);
     I.click(locator);
 
@@ -39,7 +35,7 @@ Given('shopper logs into the website on tablet', () => {
     homePage.accept();
 
     let locator = locate(loginPage.locators.loginBtn)
-        .withChild(loginPage.locators.loginBtnLink);
+      .withChild(loginPage.locators.loginBtnLink);
     I.waitForElement(locator);
     I.click(locator);
 

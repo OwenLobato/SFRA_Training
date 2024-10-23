@@ -1,12 +1,10 @@
-'use strict';
-
 const I = actor();
 
 module.exports = {
     locators: {
         lineItemQuantity: '.form-control.quantity.custom-select',
         totalItemQuantity: 'h2.number-of-items',
-        lineItemPriceTotal: 'span.sales',
+        lineItemPriceTotal: 'span.value',
         totalItemPrice: '.line-item-total-price',
         shippingCost: '.text-right.shipping-cost',
         taxTotal: '.text-right.tax-total',
@@ -72,10 +70,6 @@ module.exports = {
         I.executeScript(function (el) {
             $(el).trigger('touchstart');
         }, this.locators.cartIcon);
-        I.wait(2);
-        I.waitForElement(
-            this.locators.removeFromMiniCartButton.replace('<pid>', product.pid)
-        );
         I.click(
             this.locators.removeFromMiniCartButton.replace('<pid>', product.pid)
         );
@@ -90,13 +84,10 @@ module.exports = {
             .find(this.locators.removeProductBtn)
             .withAttr({ 'data-name': productName });
         I.click(locator);
-        I.wait(1);
         // Confirm remove product
         within(this.locators.removeProductModal, () => {
             I.click(this.locators.removeProductModalConfirm);
         });
-        I.waitForInvisible(this.locators.removeProductModal);
-        I.wait(2);
     },
     editQuantity(quantity) {
         I.selectOption(this.locators.editQuantitySelector, quantity);

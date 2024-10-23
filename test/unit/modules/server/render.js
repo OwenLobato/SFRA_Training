@@ -43,10 +43,10 @@ describe('render', function () {
     });
 
     afterEach(function () {
-        ismlRender.resetHistory();
-        pageDesignerRender.resetHistory();
-        response.base.writer.print.resetHistory();
-        response.setContentType.resetHistory();
+        ismlRender.reset();
+        pageDesignerRender.reset();
+        response.base.writer.print.reset();
+        response.setContentType.reset();
         response.viewData = {};
         response.renderings = [];
     });
@@ -86,6 +86,7 @@ describe('render', function () {
         response.renderings.push({ type: 'render', subType: 'json' });
         response.viewData = { name: 'value' };
         render.applyRenderings(response);
+
 
         assert.isTrue(response.setContentType.calledWith('application/json'));
         assert.isTrue(response.base.writer.print.calledOnce);

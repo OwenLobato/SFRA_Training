@@ -1,5 +1,3 @@
-'use strict';
-
 const { I, data, homePage } = inject();
 
 Then('shopper goes to store locator page', () => {

@@ -1,5 +1,3 @@
-'use strict';
-
 var assert = require('chai').assert;
 var request = require('request-promise');
 var config = require('../it.config');

@@ -4,6 +4,7 @@ var assert = require('chai').assert;
 var proxyquire = require('proxyquire').noCallThru().noPreserveCache();
 var sinon = require('sinon');
 
+
 describe('Range Price Model', function () {
     var defaultPrice = sinon.spy();
     var RangePrice = proxyquire('../../../../../cartridges/app_storefront_base/cartridge/models/price/range.js', {
@@ -21,13 +22,13 @@ describe('Range Price Model', function () {
         new RangePrice(minPrice, maxPrice);
         assert.isTrue(defaultPrice.calledWithNew());
         assert.isTrue(defaultPrice.calledWith(minPrice));
-        defaultPrice.resetHistory();
+        defaultPrice.reset();
     });
 
     it('should set max property to a DefaultPrice instance', function () {
         new RangePrice(minPrice, maxPrice);
         assert.isTrue(defaultPrice.calledWithNew());
         assert.isTrue(defaultPrice.calledWith(maxPrice));
-        defaultPrice.resetHistory();
+        defaultPrice.reset();
     });
 });

@@ -4,6 +4,7 @@ var assert = require('chai').assert;
 var proxyquire = require('proxyquire').noCallThru().noPreserveCache();
 var sinon = require('sinon');
 
+
 describe('Product Suggestions model', function () {
     var nextProductStub = sinon.stub();
     var nextPhraseStub = sinon.stub();

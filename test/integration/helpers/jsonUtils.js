@@ -1,5 +1,3 @@
-'use strict';
-
 var _ = require('lodash');
 
 function jsonUtils() {}
@@ -31,7 +29,7 @@ jsonUtils.removeProps = function (obj, keys) {
     } else if (typeof obj === 'object') {
         Object.getOwnPropertyNames(obj).forEach(function (key) {
             if (keys.indexOf(key) !== -1) {
-                delete obj[key]; // eslint-disable-line no-param-reassign
+                delete obj[key];  // eslint-disable-line no-param-reassign
             } else if (obj[key] != null) {
                 jsonUtils.removeProps(obj[key], keys);
             }

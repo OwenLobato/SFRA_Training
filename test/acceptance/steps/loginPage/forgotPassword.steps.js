@@ -1,5 +1,3 @@
-'use strict';
-
 const { I, data, loginPage } = inject();
 
 When('shopper clicks forgot password', () => {

@@ -1,5 +1,3 @@
-'use strict';
-
 var assert = require('chai').assert;
 var chaiSubset = require('chai-subset');
 var chai = require('chai');
@@ -7,6 +5,7 @@ chai.use(chaiSubset);
 
 var request = require('request');
 var config = require('../it.config');
+
 
 describe('Store Locator', function () {
     this.timeout(5000);
@@ -93,31 +92,21 @@ describe('Store Locator', function () {
                     }
                 ],
                 'locations': [
-                    {
-                        'name': 'Commerce Cloud',
+                    { 'name': 'Commerce Cloud',
                         'latitude': 42.5273334,
-                        'longitude': -71.13758250000001
-                    },
-                    {
-                        'name': 'Champaign Electronic Shop',
+                        'longitude': -71.13758250000001 },
+                    { 'name': 'Champaign Electronic Shop',
                         'latitude': 42.3729794,
-                        'longitude': -71.09346089999997
-                    },
-                    {
-                        'name': 'Downtown TV Shop',
+                        'longitude': -71.09346089999997 },
+                    { 'name': 'Downtown TV Shop',
                         'latitude': 42.3569512,
-                        'longitude': -71.05902600000002
-                    },
-                    {
-                        'name': 'Short Electro',
+                        'longitude': -71.05902600000002 },
+                    { 'name': 'Short Electro',
                         'latitude': 42.3403189,
-                        'longitude': -71.0817859
-                    },
-                    {
-                        'name': 'Khale Street Electronics',
+                        'longitude': -71.0817859 },
+                    { 'name': 'Khale Street Electronics',
                         'latitude': 42.6895548,
-                        'longitude': -71.14878340000001
-                    }
+                        'longitude': -71.14878340000001 }
                 ],
                 'searchKey': {
                     'postalCode': '01803'
@@ -285,21 +274,15 @@ describe('Store Locator', function () {
                     }
                 ],
                 'locations': [
-                    {
-                        'name': 'Khale Street Electronics',
+                    { 'name': 'Khale Street Electronics',
                         'latitude': 42.6895548,
-                        'longitude': -71.14878340000001
-                    },
-                    {
-                        'name': 'Commerce Cloud',
+                        'longitude': -71.14878340000001 },
+                    { 'name': 'Commerce Cloud',
                         'latitude': 42.5273334,
-                        'longitude': -71.13758250000001
-                    },
-                    {
-                        'name': 'Champaign Electronic Shop',
+                        'longitude': -71.13758250000001 },
+                    { 'name': 'Champaign Electronic Shop',
                         'latitude': 42.3729794,
-                        'longitude': -71.09346089999997
-                    }
+                        'longitude': -71.09346089999997 }
                 ],
                 'searchKey': {
                     'lat': 42.6895548,

@@ -1,5 +1,3 @@
-'use strict';
-
 var assert = require('chai').assert;
 var request = require('request-promise');
 var config = require('../it.config');
@@ -93,6 +91,7 @@ describe('Edit Product Options for an Option Product in Cart', function () {
             },
             'newProductId': productpid
         };
+
 
         myRequest.method = 'POST';
         myRequest.url = config.baseUrl + '/Cart-EditProductLineItem';
