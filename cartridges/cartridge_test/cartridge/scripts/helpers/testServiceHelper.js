@@ -2,6 +2,8 @@
 
 const Transaction = require('dw/system/Transaction');
 
+const MINUTES_15 = 15 * 60 * 1000;
+
 /**
  * Transform date into an instance timezone date.
  * @param {Date} date - GMT date
@@ -58,23 +60,31 @@ const retrieveAllProducts = () => {
 
     let productsObj = CustomObjectMgr.getCustomObject(CUSTOM_OBJECT_DATA.products.object_type, CUSTOM_OBJECT_DATA.products.key);
 
-    return getServiceResponse('getAllProducts', {
-        callback: (response) => {
-            if(!empty(response.success)) {
-            
-                Transaction.wrap(() => {
-                    if(!empty(productsObj)) {
-                        CustomObjectMgr.remove(productsObj);
-                    }
-
-                    productsObj = CustomObjectMgr.createCustomObject(CUSTOM_OBJECT_DATA.products.object_type, CUSTOM_OBJECT_DATA.products.key);
-                    productsObj.custom.data = JSON.stringify(response);
-                });
-
-                return 'HOLA MUNDO'
+    if(!empty(productsObj) && (productsObj.creationDate.getTime() + MINUTES_15 - (new Date()).getTime()) > 0) {
+        return {
+            data : JSON.parse(productsObj.custom.data),
+            date : formatDate(productsObj.creationDate)
+        };
+    } else {
+        return getServiceResponse('getAllProducts', {
+            callback: (response) => {
+                if(!empty(response.success)) {
+                
+                    Transaction.wrap(() => {
+                        if(!empty(productsObj)) {
+                            CustomObjectMgr.remove(productsObj);
+                        }
+    
+                        productsObj = CustomObjectMgr.createCustomObject(CUSTOM_OBJECT_DATA.products.object_type, CUSTOM_OBJECT_DATA.products.key);
+                        productsObj.custom.data = JSON.stringify(response);
+                    });
+    
+                    return 'HOLA MUNDO'
+                }
             }
-        }
-    });
+        });
+    }
+
 };
 
 /**
@@ -88,22 +98,28 @@ const retrieveAllProductsByCategory = (categoryName) => {
 
     let catObj = CustomObjectMgr.getCustomObject(CUSTOM_OBJECT_DATA.category.object_type, categoryName);
 
-    return getServiceResponse('getProductsByCategoryName', {
-        callback: (response) => {
-            if(!empty(response.success)) {
-                Transaction.wrap(() => {
-                    if(!empty(catObj)) {
-                        CustomObjectMgr.remove(catObj);
-                    }
+    if(!empty(catObj) && (catObj.creationDate.getTime() + MINUTES_15 - (new Date()).getTime()) > 0) {
+        return {
+            data : JSON.parse(catObj.custom.data),
+            date : formatDate(catObj.creationDate)
+        };
+    } else {
+        return getServiceResponse('getProductsByCategoryName', {
+            callback: (response) => {
+                if(!empty(response.success)) {
+                    Transaction.wrap(() => {
+                        if(!empty(catObj)) {
+                            CustomObjectMgr.remove(catObj);
+                        }
 
-                    catObj = CustomObjectMgr.createCustomObject(CUSTOM_OBJECT_DATA.category.object_type, categoryName);
-                    catObj.custom.data = JSON.stringify(response);
-                });
-            }
-        },
-        id: categoryName
-    });
-    
+                        catObj = CustomObjectMgr.createCustomObject(CUSTOM_OBJECT_DATA.category.object_type, categoryName);
+                        catObj.custom.data = JSON.stringify(response);
+                    });
+                }
+            },
+            id: categoryName
+        });
+    }
 };
 
 module.exports = {
