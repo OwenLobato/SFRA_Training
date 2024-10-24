@@ -1,6 +1,22 @@
 'use strict';
 
 /**
+ * Transform date into an instance timezone date.
+ * @param {Date} date - GMT date
+ * @returns {Date} Date in same timezone as the configured in current instance.
+ */
+const formatDate = (date) => {
+    const Calendar = require('dw/util/Calendar');
+    const System = require('dw/system/System');
+    const currentTimeZone = System.instanceTimeZone;
+
+    const timeZoneDate = new Calendar(date);
+    timeZoneDate.setTimeZone(currentTimeZone);
+
+    return timeZoneDate;
+};
+
+/**
  * Calls a service using Service Framework and if everything worked well, callback function is executed
  * with service response as a parameter.
  *
@@ -18,6 +34,7 @@ const getServiceResponse = (method, params) => {
         const callbackResult = params.callback(serviceResponse.object);
         return {
             data : serviceResponse.object,
+            date : formatDate(new Date()),
             callbackResult : callbackResult
         }
     }
@@ -68,4 +85,5 @@ module.exports = {
     getServiceResponse : getServiceResponse,
     retrieveAllProducts : retrieveAllProducts,
     retrieveAllProductsByCategory : retrieveAllProductsByCategory,
+    formatDate: formatDate,
 };
