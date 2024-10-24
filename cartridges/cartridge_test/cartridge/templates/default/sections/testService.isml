@@ -6,4 +6,10 @@
         ${JSON.stringify(pdict.data1.data)}
     </div>
 
+    <h1 class="text-center my-2">Category ${pdict.category}</h1>
+
+    <div class="services2-1">
+        ${JSON.stringify(pdict.data2.data)}
+    </div>
+
 </isdecorate>

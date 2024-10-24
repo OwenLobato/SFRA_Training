@@ -47,7 +47,25 @@ const retrieveAllProducts = () => {
     });
 };
 
+/**
+ * Retrieve all products from API
+ * @param {string} categoryName - Category name
+ * @returns {object} with the desired data and success property
+ */
+const retrieveAllProductsByCategory = (categoryName) => {
+    return getServiceResponse('getProductsByCategoryName', {
+        callback: (response) => {
+            if(!empty(response.success)) {
+
+            }
+        },
+        id: categoryName
+    });
+    
+};
+
 module.exports = {
     getServiceResponse : getServiceResponse,
     retrieveAllProducts : retrieveAllProducts,
+    retrieveAllProductsByCategory : retrieveAllProductsByCategory,
 };

@@ -21,6 +21,26 @@ const getAllProducts = () => {
     });
 };
 
+
+/**
+ * Service definition to retrieve all products from a specific category
+ * @param {string} categoryName - Category name to retrieve data from.
+ * @returns {dw.svc.Service} Service with desired data.
+ */
+const getProductsByCategoryName = (categoryName) => {
+    const config = TestServiceDefinition.AllProductsByCategory;
+    const CategoriesService = LocalServiceRegistry.createService(TEST_SERVICE_ID, config);
+
+    return CategoriesService.call({
+        endpoint : '/products/category/' + categoryName,
+        params : {
+            limit : 5,
+            sort: 'asc'
+        }
+    });
+};
+
 module.exports = {
     getAllProducts : getAllProducts,
+    getProductsByCategoryName : getProductsByCategoryName,
 };
