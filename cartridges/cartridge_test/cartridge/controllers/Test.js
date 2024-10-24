@@ -47,4 +47,16 @@ server.replace(
     pageMetaData.computedPageMetaData
 );
 
+server.get('Service', function (req, res, next) {
+    var testServiceHelper = require('*/cartridge/scripts/helpers/testServiceHelper');
+
+    var serviceData1 = testServiceHelper.retrieveAllProducts();
+
+    res.render('sections/testService', {
+        data1: serviceData1,
+    });
+
+    next();
+});
+
 module.exports = server.exports();

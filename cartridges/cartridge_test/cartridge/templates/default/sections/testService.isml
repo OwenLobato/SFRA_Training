@@ -1,0 +1,9 @@
+<isdecorate template="common/layout/page">
+
+    <h1 class="text-center my-2">All Products</h1>
+
+    <div class="services1-1">
+        ${JSON.stringify(pdict.data1.data)}
+    </div>
+
+</isdecorate>
