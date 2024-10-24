@@ -17,5 +17,6 @@ test/appium/webdriver/config.json
 .idea
 test/acceptance/report
 test/integration/config.json
-cartridges/*/cartridge/static
+cartridges/*/cartridge/static/**
 .nyc_output
+!cartridges/cartridge_test/cartridge/static/default/css/components/serviceStyles.css
