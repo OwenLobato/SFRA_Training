@@ -1,5 +1,7 @@
 'use strict';
 
+const Transaction = require('dw/system/Transaction');
+
 /**
  * Transform date into an instance timezone date.
  * @param {Date} date - GMT date
@@ -44,7 +46,6 @@ const getServiceResponse = (method, params) => {
     };
 }
 
-
 /**
  * Retrieve the status information of B2C Commerce maintenances from a custom object 'B2CCommerceMaintenances'
  * if the information was saved less than an hour ago, and if not, make a request to the API, updating the
@@ -53,12 +54,24 @@ const getServiceResponse = (method, params) => {
  */
 const retrieveAllProducts = () => {
     const CustomObjectMgr = require('dw/object/CustomObjectMgr');
+    const CUSTOM_OBJECT_DATA = require('*/cartridge/config/customObjects.json');
+
+    let productsObj = CustomObjectMgr.getCustomObject(CUSTOM_OBJECT_DATA.products.object_type, CUSTOM_OBJECT_DATA.products.key);
 
     return getServiceResponse('getAllProducts', {
         callback: (response) => {
             if(!empty(response.success)) {
-                return 'HOLA MUNDO'
+            
+                Transaction.wrap(() => {
+                    if(!empty(productsObj)) {
+                        CustomObjectMgr.remove(productsObj);
+                    }
 
+                    productsObj = CustomObjectMgr.createCustomObject(CUSTOM_OBJECT_DATA.products.object_type, CUSTOM_OBJECT_DATA.products.key);
+                    productsObj.custom.data = JSON.stringify(response);
+                });
+
+                return 'HOLA MUNDO'
             }
         }
     });
@@ -70,10 +83,22 @@ const retrieveAllProducts = () => {
  * @returns {object} with the desired data and success property
  */
 const retrieveAllProductsByCategory = (categoryName) => {
+    const CustomObjectMgr = require('dw/object/CustomObjectMgr');
+    const CUSTOM_OBJECT_DATA = require('*/cartridge/config/customObjects.json');
+
+    let catObj = CustomObjectMgr.getCustomObject(CUSTOM_OBJECT_DATA.category.object_type, categoryName);
+
     return getServiceResponse('getProductsByCategoryName', {
         callback: (response) => {
             if(!empty(response.success)) {
+                Transaction.wrap(() => {
+                    if(!empty(catObj)) {
+                        CustomObjectMgr.remove(catObj);
+                    }
 
+                    catObj = CustomObjectMgr.createCustomObject(CUSTOM_OBJECT_DATA.category.object_type, categoryName);
+                    catObj.custom.data = JSON.stringify(response);
+                });
             }
         },
         id: categoryName
