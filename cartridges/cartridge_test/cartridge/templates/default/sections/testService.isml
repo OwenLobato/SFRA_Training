@@ -1,20 +1,49 @@
 <isdecorate template="common/layout/page">
+    <isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('css/components/serviceStyles.css');
+    </isscript>
 
     <h1 class="text-center my-2">All Products</h1>
 
-    <div class="services1-1">
-        ${JSON.stringify(pdict.data1.data)}
+    <div class="services-section 1-1">
+        <p class="d-none">${JSON.stringify(pdict.data1.data.data)}</p>
+
+        <div class="product-container">
+            <isloop items=${pdict.data1.data.data} var="product">
+                <div class="product">
+                    <p>Id: ${product.id}</p>
+                    <p>${product.title}</p>
+                    <p>$${product.price}</p>
+                    <img src="${product.image}" alt="product-${product.id}" />
+                    <iscomment> <p>Descripcion: ${product.description}</p> </iscomment>
+                    <iscomment> <p>Categoria: ${product.category}</p> </iscomment>
+                </div>
+            </isloop>
+        </div>
     </div>
-    <div class="services1-2">
+    <div class="services-section 1-2">
         <p><isprint value="${pdict.data1.date.time}" formatter="dd MMM YYYY 'at' hh:mm:ss aa" timezone="SITE" /></p>
     </div>
 
     <h1 class="text-center my-2">Category ${pdict.category}</h1>
 
-    <div class="services2-1">
-        ${JSON.stringify(pdict.data2.data)}
+    <div class="services-section 2-1">
+        <p class="d-none">${JSON.stringify(pdict.data2.data.data)}</p>
+
+        <div class="product-container">
+            <isloop items=${pdict.data2.data.data} var="product">
+                <div class="product">
+                    <p>Id: ${product.id}</p>
+                    <p>${product.title}</p>
+                    <p>$${product.price}</p>
+                    <img src="${product.image}" alt="product-${product.id}" />
+                    <iscomment> <p>Descripcion: ${product.description}</p> </iscomment>
+                </div>
+            </isloop>
+        </div>
     </div>
-    <div class="services2-2">
+    <div class="services-section 2-2">
         <p><isprint value="${pdict.data1.date.time}" style="DATE_SHORT" timezone="SITE" /></p>
     </div>
 
