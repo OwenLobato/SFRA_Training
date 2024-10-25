@@ -1,0 +1,26 @@
+<div class="modal-container">
+    <div class="column left-column">
+        <div class="row">
+            <span class="label">Name:</span>
+            <span class="value">${pdict.title}</span>
+        </div>
+        <div class="row">
+            <span class="label">Information</span>
+            <span class="value"><isprint value="${pdict.title}" encoding="off"/></span>
+        </div>
+    </div>
+    <div class="column right-column">
+        <div class="row">
+            <span class="label">Rating:</span>
+            <span class="value">${pdict.rating.rate}</span>
+        </div>
+        <div class="row">
+            <span class="label">Count:</span>
+            <span class="value">${pdict.rating.count}</span>
+        </div>
+        <div class="row">
+            <span class="label">Price:</span>
+            <span class="value">${pdict.price}</span>
+        </div>
+    </div>
+</div>

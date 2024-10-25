@@ -2,6 +2,7 @@
     <isscript>
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addCss('css/components/serviceStyles.css');
+    assets.addJs('js/modal.js');
     </isscript>
 
     <h1 class="text-center my-2">All Products</h1>
@@ -11,7 +12,7 @@
 
         <div class="product-container">
             <isloop items=${pdict.data1.data.data} var="product">
-                <div class="product" data-url="${URLUtils.https('Test-Single', 'productId', product.id)}" >
+                <div class="product openModal" data-url="${URLUtils.https('Test-Single', 'productId', product.id)}" >
                     <p>Id: ${product.id}</p>
                     <p>${product.title}</p>
                     <p>$${product.price}</p>
@@ -46,5 +47,7 @@
     <div class="services-section 2-2">
         <p><isprint value="${pdict.data1.date.time}" style="DATE_SHORT" timezone="SITE" /></p>
     </div>
+
+    <isinclude template="components/modal" />
 
 </isdecorate>
