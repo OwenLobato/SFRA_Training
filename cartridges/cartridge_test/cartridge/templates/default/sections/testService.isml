@@ -29,6 +29,18 @@
 
     <h1 class="text-center my-2">Category ${pdict.category}</h1>
 
+    <div class="cat-selector">
+        <form action="${URLUtils.https('Test-Service').toString()}" method="GET" >
+            <select name="categoryName" id="categorySelect" onchange="this.form.submit()">
+                <isloop items="${['electronics', 'jewelery']}" var="category">
+                    <option value="${category}" 
+                        <isif condition="${category == pdict.category}">selected</isif>
+                    >${category}</option>
+                </isloop>
+            </select>
+        </form>
+    </div>
+
     <div class="services-section 2-1">
         <p class="d-none">${JSON.stringify(pdict.data2.data.data)}</p>
 

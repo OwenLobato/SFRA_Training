@@ -50,7 +50,7 @@ server.replace(
 server.get('Service', function (req, res, next) {
     var testServiceHelper = require('*/cartridge/scripts/helpers/testServiceHelper');
 
-    var category = 'jewelery'
+    var category = req.httpParameterMap.categoryName.value || 'jewelery';
 
     var serviceData1 = testServiceHelper.retrieveAllProducts();
     var serviceData2 = testServiceHelper.retrieveAllProductsByCategory(category);

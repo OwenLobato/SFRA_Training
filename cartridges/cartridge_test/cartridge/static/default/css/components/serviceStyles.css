@@ -89,6 +89,42 @@
     font-size: 20px;
   }
 }
+.cat-selector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin: 30px;
+}
+.cat-selector form {
+  width: 100%;
+}
+.cat-selector select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #fff;
+  cursor: pointer;
+  -webkit-transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease;
+}
+.cat-selector select:hover {
+  border-color: #0056b3;
+}
+.cat-selector select:focus {
+  outline: none;
+  border-color: #0056b3;
+}
+
 .services-section {
   font-size: 30px;
   background-color: #f6f6f6;
