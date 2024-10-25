@@ -19,10 +19,19 @@ const AllProducts = {
         if(response.statusMessage == success.message) {
             try {
                 const serviceResponse = JSON.parse(response.text);
-                const result = {
-                    success : true,
-                    data: serviceResponse
-                };
+                let result;
+                if (serviceResponse.id) {
+                    const serviceProductModel = require('*/cartridge/models/serviceProduct');
+                    result = {
+                        success : true,
+                        product : new serviceProductModel(serviceResponse)
+                    };
+                } else {
+                    result = {
+                        success : true,
+                        data: serviceResponse
+                    };
+                }
 
                 return result;
             } catch(error) {

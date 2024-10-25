@@ -10,11 +10,12 @@ const TEST_SERVICE_ID = 'cartridge_test.http.service.get';
  * Service definition to retrieve all products from custom API.
  * @returns {dw.svc.Service} Service with desired data.
  */
-const getAllProducts = () => {
+const getAllProducts = (prodId) => {
     const config = TestServiceDefinition.AllProducts;
     const ProductsService = LocalServiceRegistry.createService(TEST_SERVICE_ID, config);
+    let endpoint = prodId ? `/products/${prodId}` : '/products' 
     return ProductsService.call({
-        endpoint : '/products',
+        endpoint : endpoint,
         params : {
             limit : 5
         }

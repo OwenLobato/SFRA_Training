@@ -65,4 +65,29 @@ server.get('Service', function (req, res, next) {
     next();
 });
 
+server.get('Single', function (req, res, next) {
+    /* global empty */
+    var testServiceHelper = require('*/cartridge/scripts/helpers/testServiceHelper');
+
+    var  productId = req.httpParameterMap.productId.value;
+
+    if(!empty(productId)) {
+        var Template = require('dw/util/Template');
+        var serviceProductData = testServiceHelper.retrieveAllProducts(productId);
+
+        if(Object.prototype.hasOwnProperty.call(serviceProductData, 'success') && !empty(serviceProductData.success)) {
+            res.json({ success : false});
+        } else {
+            res.json({
+                success : true,
+                title: 'Producto #' + serviceProductData.data.product.id,
+                body : new Template('components/modals/serviceProduct').render(testServiceHelper.transformObjectAsMap(serviceProductData.data.product)).text
+            });
+        }
+    } else {
+        res.json({ success : false});
+    }
+    next();
+});
+
 module.exports = server.exports();

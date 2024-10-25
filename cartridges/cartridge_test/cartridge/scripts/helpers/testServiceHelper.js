@@ -5,6 +5,26 @@ const Transaction = require('dw/system/Transaction');
 const MINUTES_15 = 15 * 60 * 1000;
 
 /**
+ * Transforms the serviceProduct object into a HashMap.
+ * @param {Object} serviceProduct - The serviceProduct object to transform.
+ * @returns {dw.util.HashMap} - The transformed serviceProduct as a HashMap.
+ */
+const transformObjectAsMap = (serviceProduct) => {
+    const HashMap = require('dw/util/HashMap');
+    const result = new HashMap();
+
+    result.id = serviceProduct.id;
+    result.title = serviceProduct.title;
+    result.price = serviceProduct.price;
+    result.description = serviceProduct.description;
+    result.category = serviceProduct.category;
+    result.image = serviceProduct.image;
+    result.rating = serviceProduct.rating;
+
+    return result;
+};
+
+/**
  * Transform date into an instance timezone date.
  * @param {Date} date - GMT date
  * @returns {Date} Date in same timezone as the configured in current instance.
@@ -49,16 +69,17 @@ const getServiceResponse = (method, params) => {
 }
 
 /**
- * Retrieve the status information of B2C Commerce maintenances from a custom object 'B2CCommerceMaintenances'
- * if the information was saved less than an hour ago, and if not, make a request to the API, updating the
+ * Retrieve all the prodcuts from a custom object 'ServiceAPIProducts'
+ * if the information was saved less than an 15 minutes, and if not, make a request to the API, updating the
  * custom object immediately afterwards.
  * @returns {object} with the desired data and success property
  */
-const retrieveAllProducts = () => {
+const retrieveAllProducts = (productId) => {
     const CustomObjectMgr = require('dw/object/CustomObjectMgr');
     const CUSTOM_OBJECT_DATA = require('*/cartridge/config/customObjects.json');
 
-    let productsObj = CustomObjectMgr.getCustomObject(CUSTOM_OBJECT_DATA.products.object_type, CUSTOM_OBJECT_DATA.products.key);
+    const objectKey = productId || CUSTOM_OBJECT_DATA.products.key;
+    let productsObj = CustomObjectMgr.getCustomObject(CUSTOM_OBJECT_DATA.products.object_type, objectKey);
 
     if(!empty(productsObj) && (productsObj.creationDate.getTime() + MINUTES_15 - (new Date()).getTime()) > 0) {
         return {
@@ -75,13 +96,14 @@ const retrieveAllProducts = () => {
                             CustomObjectMgr.remove(productsObj);
                         }
     
-                        productsObj = CustomObjectMgr.createCustomObject(CUSTOM_OBJECT_DATA.products.object_type, CUSTOM_OBJECT_DATA.products.key);
+                        productsObj = CustomObjectMgr.createCustomObject(CUSTOM_OBJECT_DATA.products.object_type, objectKey);
                         productsObj.custom.data = JSON.stringify(response);
                     });
     
                     return 'HOLA MUNDO'
                 }
-            }
+            },
+            id: !empty(productId) ? productId : null
         });
     }
 
@@ -127,4 +149,5 @@ module.exports = {
     retrieveAllProducts : retrieveAllProducts,
     retrieveAllProductsByCategory : retrieveAllProductsByCategory,
     formatDate: formatDate,
+    transformObjectAsMap : transformObjectAsMap
 };

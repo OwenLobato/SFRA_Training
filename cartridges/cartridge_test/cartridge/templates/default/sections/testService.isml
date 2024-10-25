@@ -11,7 +11,7 @@
 
         <div class="product-container">
             <isloop items=${pdict.data1.data.data} var="product">
-                <div class="product">
+                <div class="product" data-url="${URLUtils.https('Test-Single', 'productId', product.id)}" >
                     <p>Id: ${product.id}</p>
                     <p>${product.title}</p>
                     <p>$${product.price}</p>
