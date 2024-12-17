@@ -101,7 +101,7 @@ var has3d,
 
   // Number of pages in the DOM, minimum value: 6
 
-  pagesInDOM = 6,
+  pagesInDOM = 4,
   
 
 turnMethods = {
