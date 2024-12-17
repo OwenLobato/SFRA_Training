@@ -3,7 +3,8 @@
 */
 'use strict';
 
-var imagePath = 'https://bjkz-007.dx.commercecloud.salesforce.com/on/demandware.servlet/webdav/Sites/Impex/src/magazine/'; // [ ]: UPLOAD IMAGES TO IMPEX
+// var imagePath = 'https://bjkz-007.dx.commercecloud.salesforce.com/on/demandware.servlet/webdav/Sites/Impex/src/magazine/'; // [ ]: UPLOAD IMAGES TO IMPEX
+var imagePath = 'https://bjkz-007.dx.commercecloud.salesforce.com/on/demandware.servlet/webdav/Sites/Catalogs/storefront-catalog-m-en/default/magazine/'; // [ ]: UPLOAD IMAGES TO CATALOG
 
 function addPage(page, book) {
 

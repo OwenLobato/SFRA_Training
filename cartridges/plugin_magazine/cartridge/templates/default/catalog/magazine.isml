@@ -24,7 +24,7 @@
       </div>
 
       <!-- Thumbnails -->
-      <div class="thumbnails">
+      <iscomment> <div class="thumbnails">
           <div>
               <ul>
                   <li class="i">
@@ -61,12 +61,14 @@
                       <span>12</span>
                   </li>
               <ul>
-          </div>	
-      </div>
+          </div>
+      </div> </iscomment>
 
   </div>
 
   <iscomment> <p class="m-3">Todos los descuentos son aplicados sobre precio de lista y están sujetos a disponibilidad o hasta agotar existencias. Consulte marcas y bases de promociones. Aplican restricciones. Vigencia del 1 al 31 de Diciembre de 2024.</p> </iscomment>
+
+  <iscomment> <iframe src="http://127.0.0.1:5500/index.html" class="w-100 h-100"></iframe> </iscomment>
 
 <iscomment> </isdecorate> </iscomment>
 
@@ -82,7 +84,7 @@
             setTimeout(loadApp, 10);
             return;
         }
-        
+
         // Create the flipbook
         flipbook.turn({
             width: 922, // Magazine width
@@ -110,7 +112,7 @@
                 turned: function(event, page, view) {
                     disableControls(page);
                     $(this).turn('center');
-                    if (page==1) { 
+                    if (page==1) {
                         $(this).turn('peel', 'br');
                     }
                 },
@@ -126,9 +128,9 @@
         // Zoom.js
         $('.magazine-viewport').zoom({
             flipbook: $('.magazine'),
-            max: function() { 
+            max: function() {
                 return largeMagazineWidth()/$('.magazine').width();
-            }, 
+            },
             when: {
                 swipeLeft: function() {
                     $(this).zoom('flipbook').turn('next');
@@ -184,7 +186,7 @@
             var previous = 37;
             var next = 39;
             var esc = 27;
-            
+
             switch (e.keyCode) {
                 case previous: // Left arrow
                     $('.magazine').turn('previous');
@@ -195,13 +197,13 @@
                     e.preventDefault();
                     break;
                 case esc: // Exit
-                    $('.magazine-viewport').zoom('zoomOut');	
+                    $('.magazine-viewport').zoom('zoomOut');
                     e.preventDefault();
                     break;
             }
         });
 
-        Hash.on('^page\/([0-9]*)$', { // URIs - Format 'gato'/page/1 
+        Hash.on('^page\/([0-9]*)$', { // URIs - Format 'gato'/page/1
             yep: function(path, parts) {
                 var page = parts[1];
                 if (page!==undefined) {
@@ -217,8 +219,7 @@
             }
         });
 
-
-$(window).resize(function() {
+        $(window).resize(function() {
             resizeViewport();
         }).bind('orientationchange', function() {
             resizeViewport();
@@ -293,14 +294,14 @@ $(window).resize(function() {
     }
 
     // Zoom icon
-    $('.zoom-icon').bind('mouseover', function() { 
+    $('.zoom-icon').bind('mouseover', function() {
         if ($(this).hasClass('zoom-icon-in')){
             $(this).addClass('zoom-icon-in-hover');
         }
         if ($(this).hasClass('zoom-icon-out')){
             $(this).addClass('zoom-icon-out-hover');
         }
-    }).bind('mouseout', function() { 
+    }).bind('mouseout', function() {
         if ($(this).hasClass('zoom-icon-in')){
             $(this).removeClass('zoom-icon-in-hover');
         }
@@ -314,7 +315,7 @@ $(window).resize(function() {
             $('.magazine-viewport').zoom('zoomOut');
         }
     });
-    
+
     $('#canvas').hide();
 
     // Load the HTML4 version if there's not CSS transform

@@ -1,9 +1,12 @@
-body{
+/* body{
 	overflow:hidden;
 	background-color:#fcfcfc;
 	margin:0;
 	padding:0;
-}
+} */
+ #canvas{
+	height: 400px;
+ }
 
 .magazine-viewport .container{
 	position:absolute;
