@@ -4,13 +4,10 @@
 'use strict';
 
 // [ ]: UPLOAD IMAGES TO IMPEX
-// var imagePath = 'https://bjkz-007.dx.commercecloud.salesforce.com/on/demandware.servlet/webdav/Sites/Impex/src/magazine/';
-// var imagePath = 'https://bjkz-007.dx.commercecloud.salesforce.com/on/demandware.servlet/webdav/Sites/Catalogs/storefront-catalog-m-en/default/magazine/';
-var imagePath = 'https://bjkz-007.dx.commercecloud.salesforce.com/on/demandware.servlet/webdav/Sites/Libraries/RefArchSharedLibrary/default/images/magazine/';
-// var imagePath = 'https://development-na01-california.demandware.net/on/demandware.servlet/webdav/Sites/Catalogs/refac-california-master/magazine/';
+// var imagePath = 'https://bjkz-007.dx.commercecloud.salesforce.com/on/demandware.servlet/webdav/Sites/Libraries/RefArchSharedLibrary/default/images/magazine/';
+var imagePath = 'https://bjkz-007.dx.commercecloud.salesforce.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/images/magazine/';
 // var imagePath = 'https://development-na01-california.demandware.net/on/demandware.servlet/webdav/Sites/Libraries/RefArchSharedLibrary/default/images/pruebaRC/'; 
 // var imagePath = 'https://development-na01-california.demandware.net/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/images/pruebaRC/'
-// var imagePath = 'https://drive.google.com/drive/folders/1i0QYgLN_nuwK610-h88snyApabsPKYHS?usp=sharing/';
 
 function addPage(page, book) {
 
