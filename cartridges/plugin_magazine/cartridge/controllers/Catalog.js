@@ -18,8 +18,12 @@ var server = require('server');
 server.get('Show', function (req, res, next) {
 
     var option = req.querystring.option || '1'; 
-    res.render('catalog/magazine', { option: option });
+    res.render('catalog/template', { option: option });
+    next();
+});
 
+server.get('Magazine', function (req, res, next) {
+    res.render('catalog/magazine', {});
     next();
 });
 

@@ -1,34 +1,21 @@
-<iscomment> <isdecorate template="common/layout/page"> </iscomment>
+<script src="${URLUtils.staticURL('js/skin/extras/jquery-min-1-7.js')}"></script>
+<script src="${URLUtils.staticURL('js/skin/extras/modernizr-2-5-3-min.js')}"></script>
+<script src="${URLUtils.staticURL('js/skin/lib/hash.js')}"></script>
 
-    <script src="${URLUtils.staticURL('js/skin/extras/jquery-min-1-7.js')}"></script>
-    <script src="${URLUtils.staticURL('js/skin/extras/modernizr-2-5-3-min.js')}"></script>
-    <script src="${URLUtils.staticURL('js/skin/lib/hash.js')}"></script>
+<div id="canvas">
 
+    <div class="zoom-icon zoom-icon-in"></div>
 
-    <iscomment> <h1 class="text-center my-2">REVISTA ${pdict.option}</h1> </iscomment>
-
-
-    <div id="canvas">
-
-        <div class="zoom-icon zoom-icon-in"></div>
-
-        <div class="magazine-viewport">
-            <div class="container">
-                <div class="magazine">
-                    <div ignore="1" class="next-button"></div> <iscomment> Next button </iscomment>
-                    <div ignore="1" class="previous-button"></div> <iscomment> Previous button </iscomment>
-                </div>
+    <div class="magazine-viewport">
+        <div class="container">
+            <div class="magazine">
+                <div ignore="1" class="next-button"></div> <iscomment> Next button </iscomment>
+                <div ignore="1" class="previous-button"></div> <iscomment> Previous button </iscomment>
             </div>
         </div>
-
     </div>
 
-    <iscomment> <p class="m-3">Todos los descuentos son aplicados sobre precio de lista y están sujetos a disponibilidad o hasta agotar existencias. Consulte marcas y bases de promociones. Aplican restricciones. Vigencia del 1 al 31 de Diciembre de 2024.</p> </iscomment>
-
-    <iscomment> <iframe src="http://127.0.0.1:5500/index.html" class="w-100 h-100"></iframe> </iscomment>
-
-<iscomment> </isdecorate> </iscomment>
-
+</div>
 
 <script type="text/javascript">
     'use strict';
@@ -289,5 +276,3 @@
     });
 
 </script>
-
-
