@@ -1,74 +1,31 @@
-<script src="${URLUtils.staticURL('js/skin/extras/jquery-min-1-7.js')}"></script>
-<script src="${URLUtils.staticURL('js/skin/extras/modernizr-2-5-3-min.js')}"></script>
-<script src="${URLUtils.staticURL('js/skin/lib/hash.js')}"></script>
-
-
-
 <iscomment> <isdecorate template="common/layout/page"> </iscomment>
 
-  <iscomment> <h1 class="text-center my-2">REVISTA ${pdict.option}</h1> </iscomment>
+    <script src="${URLUtils.staticURL('js/skin/extras/jquery-min-1-7.js')}"></script>
+    <script src="${URLUtils.staticURL('js/skin/extras/modernizr-2-5-3-min.js')}"></script>
+    <script src="${URLUtils.staticURL('js/skin/lib/hash.js')}"></script>
 
-  <div id="canvas">
 
-      <div class="zoom-icon zoom-icon-in"></div>
+    <iscomment> <h1 class="text-center my-2">REVISTA ${pdict.option}</h1> </iscomment>
 
-      <div class="magazine-viewport">
-          <div class="container">
-              <div class="magazine">
-                  <!-- Next button -->
-                  <div ignore="1" class="next-button"></div>
-                  <!-- Previous button -->
-                  <div ignore="1" class="previous-button"></div>
-              </div>
-          </div>
-      </div>
 
-      <!-- Thumbnails -->
-      <iscomment> <div class="thumbnails">
-          <div>
-              <ul>
-                  <li class="i">
-                      <img src="${URLUtils.staticURL('/images/magazine/1-thumb.jpg')}" width="76" height="100" class="page-1" />
-                      <span>1</span>
-                  </li>
-                  <li class="d">
-                      <img src="${URLUtils.staticURL('/images/magazine/2-thumb.jpg')}" width="76" height="100" class="page-2" />
-                      <img src="${URLUtils.staticURL('/images/magazine/3-thumb.jpg')}" width="76" height="100" class="page-3" />
-                      <span>2-3</span>
-                  </li>
-                  <li class="d">
-                      <img src="${URLUtils.staticURL('/images/magazine/4-thumb.jpg')}" width="76" height="100" class="page-4" />
-                      <img src="${URLUtils.staticURL('/images/magazine/5-thumb.jpg')}" width="76" height="100" class="page-5" />
-                      <span>4-5</span>
-                  </li>
-                  <li class="d">
-                      <img src="${URLUtils.staticURL('/images/magazine/6-thumb.jpg')}" width="76" height="100" class="page-6" />
-                      <img src="${URLUtils.staticURL('/images/magazine/7-thumb.jpg')}" width="76" height="100" class="page-7" />
-                      <span>6-7</span>
-                  </li>
-                  <li class="d">
-                      <img src="${URLUtils.staticURL('/images/magazine/8-thumb.jpg')}" width="76" height="100" class="page-8" />
-                      <img src="${URLUtils.staticURL('/images/magazine/9-thumb.jpg')}" width="76" height="100" class="page-9" />
-                      <span>8-9</span>
-                  </li>
-                  <li class="d">
-                      <img src="${URLUtils.staticURL('/images/magazine/10-thumb.jpg')}" width="76" height="100" class="page-10" />
-                      <img src="${URLUtils.staticURL('/images/magazine/11-thumb.jpg')}" width="76" height="100" class="page-11" />
-                      <span>10-11</span>
-                  </li>
-                  <li class="i">
-                      <img src="${URLUtils.staticURL('/images/magazine/12-thumb.jpg')}" width="76" height="100" class="page-12" />
-                      <span>12</span>
-                  </li>
-              <ul>
-          </div>
-      </div> </iscomment>
+    <div id="canvas">
 
-  </div>
+        <div class="zoom-icon zoom-icon-in"></div>
 
-  <iscomment> <p class="m-3">Todos los descuentos son aplicados sobre precio de lista y están sujetos a disponibilidad o hasta agotar existencias. Consulte marcas y bases de promociones. Aplican restricciones. Vigencia del 1 al 31 de Diciembre de 2024.</p> </iscomment>
+        <div class="magazine-viewport">
+            <div class="container">
+                <div class="magazine">
+                    <div ignore="1" class="next-button"></div> <iscomment> Next button </iscomment>
+                    <div ignore="1" class="previous-button"></div> <iscomment> Previous button </iscomment>
+                </div>
+            </div>
+        </div>
 
-  <iscomment> <iframe src="http://127.0.0.1:5500/index.html" class="w-100 h-100"></iframe> </iscomment>
+    </div>
+
+    <iscomment> <p class="m-3">Todos los descuentos son aplicados sobre precio de lista y están sujetos a disponibilidad o hasta agotar existencias. Consulte marcas y bases de promociones. Aplican restricciones. Vigencia del 1 al 31 de Diciembre de 2024.</p> </iscomment>
+
+    <iscomment> <iframe src="http://127.0.0.1:5500/index.html" class="w-100 h-100"></iframe> </iscomment>
 
 <iscomment> </isdecorate> </iscomment>
 
