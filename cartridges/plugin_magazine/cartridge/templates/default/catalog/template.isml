@@ -1,0 +1,7 @@
+<isdecorate template="common/layout/page">
+
+  <iframe src="${URLUtils.url('Catalog-Magazine')}" width="100%" height="670px" style="border: none;"></iframe>
+
+  <p class="m-3" style="font-size: 16px; text-align:center;">Todos los descuentos son aplicados sobre precio de lista y están sujetos a disponibilidad o hasta agotar existencias. Consulte marcas y bases de promociones. Aplican restricciones. Vigencia del 1 al 31 de Diciembre de 2024.</p>
+
+</isdecorate>
