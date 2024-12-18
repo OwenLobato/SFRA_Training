@@ -231,10 +231,15 @@ function disableControls(page) {
 // Set the width and height for the viewport
 
 function resizeViewport() {
+	var width = $(window).width();
+	// var height =  $(window).height();
+	var height =  '350px'; // Mobile
 
-	var width = $(window).width(),
-	height =  '650px', // $(window).height(),
-	options = $('.magazine').turn('options');
+	if (width >= 768) {
+		height = '650px'; // Desktop
+	}
+
+	var options = $('.magazine').turn('options');
 
 	$('.magazine').removeClass('animated');
 
