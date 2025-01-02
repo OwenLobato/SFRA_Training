@@ -1,5 +1,4 @@
 /* eslint-env es6 */
-
 'use strict';
 
 var assert = require('chai').assert;

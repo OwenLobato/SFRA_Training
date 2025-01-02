@@ -1,0 +1,53 @@
+<isdecorate template="application/MenuFrame">
+    <isinclude template="components/modules" />
+    <link href="${URLUtils.staticURL('/css/common.css')}" type="text/css" rel="stylesheet" />
+    <link href="${URLUtils.staticURL('/css/messages.css?v=1.0.1')}" type="text/css" rel="stylesheet" />
+
+    <isbmbreadcrumb
+        link1="${URLUtils.url('ViewApplication-ExpandMenuGroup', 'MenuGroupID', 'AdministrationMenu', 'OverviewPage', 'SiteNavigationBar-ShowAdministrationOverview')}"
+        title1="${Resource.msg('administration','podalerts', null)}"
+        link2="${URLUtils.url('SiteNavigationBar-ShowMenuitemOverview', 'CurrentMenuItemId', 'pod_alerts')}"
+        title2="${Resource.msg('pod.alerts.section','podalerts', null)}"
+        currentsection="${Resource.msg('pod.alerts.section.messages','podalerts', null)}" />
+
+    <isbmtitle title="${Resource.msg('pod.alerts.section.messages','podalerts', null)}" />
+
+    <isbmdescription description="${Resource.msg('pod.alerts.section.messages.description', 'podalerts', null)}" />
+
+    <isif condition="${pdict.messages.success}">
+        <isinclude template="components/lastupdate" />
+
+        <table class="messages-table">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <span>${Resource.msg('pod.alerts.section.messages.table.id', 'podalerts', null)}</span>
+                    </th>
+                    <th scope="col">
+                        <span>${Resource.msg('pod.alerts.section.messages.table.subject', 'podalerts', null)}</span>
+                    </th>
+                    <th scope="col">
+                        <span>${Resource.msg('pod.alerts.section.messages.table.posted', 'podalerts', null)}</span>
+                    </th>
+                    <th scope="col">
+                        <span>${Resource.msg('pod.alerts.section.messages.table.active', 'podalerts', null)}</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <isloop items="${pdict.messages.messages}" alias="message">
+                    <tr>
+                        <td><a href="${'#'}" class="openModal" data-url="${URLUtils.https('PODAlerts-Message', 'MessageID', message.ID)}">${message.ID}</a></td>
+                        <td>${message.subject}</td>
+                        <td>${message.hour}, ${message.date}</td>
+                        <td><span>${Resource.msg('pod.alerts.section.messages.table.active.' + message.status, 'podalerts', message.status)}</span></td>
+                    </tr>
+                </isloop>
+            </tbody>
+        </table>
+    <iselse/>
+        <isinclude template="components/error" />
+    </isif>
+
+    <isinclude template="components/modal" />
+</isdecorate>

@@ -1,0 +1,18 @@
+{
+    "status" : {
+        "object_type" : "B2CCommerceStatus",
+        "key" : "B2CCommerceStatus"
+    },
+    "messages" : {
+        "object_type" : "GeneralMessages",
+        "key" : "GeneralMessages"
+    },
+    "pod" : {
+        "object_type" : "PodStatus",
+        "key" : "POD"
+    },
+    "maintenances" : {
+        "object_type" : "B2CCommerceMaintenances",
+        "key" : "B2CCommerceMaintenances"
+    }
+}

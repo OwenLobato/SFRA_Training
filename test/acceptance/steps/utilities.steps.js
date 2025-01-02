@@ -1,5 +1,3 @@
-'use strict';
-
 const { I, utilities } = inject();
 
 When('shopper load Page Designer home page', () => {

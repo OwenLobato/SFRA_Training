@@ -1,0 +1,5 @@
+<div id="bm-breadcrumb">
+    <a class="breadcrumb" href="<isprint value="${pdict.link1}" />"><isprint value="${pdict.title1}" /></a>&nbsp;&gt;&nbsp;
+    <a class="breadcrumb" href="<isprint value="${pdict.link2}" />"><isprint value="${pdict.title2}" /></a>&nbsp;&gt;&nbsp;
+    <isprint value="${pdict.currentsection}" />
+</div>

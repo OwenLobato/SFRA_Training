@@ -1,5 +1,3 @@
-'use strict';
-
 const { I, homePage, productPage } = inject();
 var should = require('should'); // eslint-disable-line
 
@@ -9,5 +7,5 @@ Given('shopper lands on the expected pdp', () => {
 });
 
 Then('shopper sees all the product related information v2', async () => {
-    (await I.grabTextFrom(productPage.locators.productName)).trim().should.equal('Playstation 3 Bundle');
+    (await I.grabTextFrom(productPage.locators.productName))[0].trim().should.equal('Playstation 3 Bundle');
 });

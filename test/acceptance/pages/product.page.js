@@ -1,5 +1,3 @@
-'use strict';
-
 const I = actor();
 
 module.exports = {
@@ -14,18 +12,17 @@ module.exports = {
         miniCartCheckoutButton: '.checkout-btn',
         cartHeader: '.cart-header',
         productImage: '.carousel-item.active > img',
-        navigationCrumbs:
-            '.product-breadcrumb:not(.d-md-none) .breadcrumb-item a',
+        navigationCrumbs: '.product-breadcrumb:not(.d-md-none) .breadcrumb-item a',
         productName: '.product-name',
         productId: '.product-id',
         ratings: '.ratings',
         productAvailability: '.availability-msg',
-        productPrice: '.prices .price .sales',
+        productPrice: '.prices .price .value',
         socialShare: 'ul.social-icons a',
         pinterest: '.fa-pinterest',
         facebook: '.fa-facebook-official',
         twitter: '.fa-twitter',
-        copyLink: '#fa-link',
+        copyLink: '.fa-link',
         productDescription: '.description-and-detail .description .content',
         productDetails: '.description-and-detail .details .content',
         copyLinkMsgVisible: '.copy-link-message:not(.d-none)',
@@ -55,9 +52,8 @@ module.exports = {
         I.selectOption(this.locators.selectQuantity, quantity);
     },
     selectColor(color) {
-        let locator = locate(this.locators.selectColor).withAttr({
-            'aria-label': 'Select Color ' + color
-        });
+        let locator = locate(this.locators.selectColor)
+            .withAttr({ 'aria-label': 'Select Color ' + color });
         I.waitForElement(locator);
         I.click(locator);
     },
@@ -66,12 +62,9 @@ module.exports = {
         I.click(this.locators.addToCartButton);
     },
     addProductToMiniCart(product) {
-        this.selectQuantity(product.originalQuantity);
-        I.wait(1);
         this.selectSize(product.size);
-        I.wait(1);
         this.selectColor(product.color);
-        I.wait(1);
+        this.selectQuantity(product.originalQuantity);
         this.addToCart();
     },
     viewCart() {
@@ -101,9 +94,8 @@ module.exports = {
         I.click(locator);
     },
     filterProductOption(filterOption, firstProductName) {
-        let locatorOption = locate(this.locators.filterOption).withAttr({
-            'aria-label': 'Sort By'
-        });
+        let locatorOption = locate(this.locators.filterOption)
+            .withAttr({ 'aria-label': 'Sort By' });
         I.waitForElement(locatorOption);
         I.scrollTo(locatorOption);
         I.selectOption(locatorOption, filterOption);
@@ -128,25 +120,21 @@ module.exports = {
         I.waitNumberOfVisibleElements(this.locators.firstProductTile, 24);
     },
     verifyProductTotals(totalItems) {
-        let locator = locate(this.locators.productTotals).find(
-            this.locators.filterPrice
-        );
+        let locator = locate(this.locators.productTotals)
+            .find(this.locators.filterPrice);
         I.waitForElement(locator);
         I.see(totalItems, locator);
     },
     openProductQuickView(pdpQuickViewLink) {
-        let locator = locate(this.locators.qv_ProductBtn).withAttr({
-            href: pdpQuickViewLink
-        });
+        let locator = locate(this.locators.qv_ProductBtn)
+            .withAttr({ href: pdpQuickViewLink });
         I.waitForElement(locator);
         I.scrollTo(locator);
         I.click(locator);
-        I.wait(2);
     },
     selectQuickViewColor(color) {
-        let locator = locate(this.locators.qv_ColorBtn).withAttr({
-            'aria-label': 'Select Color ' + color
-        });
+        let locator = locate(this.locators.qv_ColorBtn)
+            .withAttr({ 'aria-label': 'Select Color ' + color });
         I.waitForElement(locator);
         I.click(locator);
     },
@@ -157,11 +145,9 @@ module.exports = {
     addToCartQuickView() {
         I.waitForElement(this.locators.qv_AddToCart);
         I.click(this.locators.qv_AddToCart);
-        I.wait(2);
     },
     clickCheckoutBtnOnMiniCart() {
         I.waitForElement(this.locators.miniCartCheckoutButton);
-        I.wait(1);
         I.click(this.locators.miniCartCheckoutButton);
     }
 };

@@ -44,7 +44,6 @@ module.exports = {
         zipcode,
         phone
     ) {
-        I.scrollTo(0, 500);
         I.fillField(this.locators.addressTitle, addressTitle);
         I.fillField(this.locators.fName, fName);
         I.fillField(this.locators.lName, lName);
@@ -100,7 +99,6 @@ module.exports = {
         I.click(this.locators.saveBtn);
     },
     addPayment(nameOnCard, ccNum, expMonth, expYear) {
-        I.scrollTo(0, 500);
         I.fillField(this.locators.nameOnCard, nameOnCard);
         I.fillField(this.locators.ccNum, ccNum);
         I.scrollTo(this.locators.expMonth);
@@ -119,22 +117,18 @@ module.exports = {
     removePayment(deletePaymentModalText) {
         let locator = locate(this.locators.removeProductBtn).last();
         I.click(locator);
-        I.wait(2);
         I.waitForText(deletePaymentModalText);
         within(this.locators.removeProductModal, () => {
             I.click(this.locators.removeProductConfirm);
         });
-        I.wait(3);
     },
     changePassword(currentPassword, newPassword) {
-        I.scrollTo(0, 500);
         I.fillField(this.locators.currentPassword, currentPassword);
         I.fillField(this.locators.newPassword, newPassword);
         I.fillField(this.locators.newPasswordConfirm, newPassword);
         I.click(this.locators.saveBtn);
     },
     editProfile(phone, email, password) {
-        I.scrollTo(0, 500);
         I.fillField(this.locators.phone, phone);
         I.fillField(this.locators.confirmEmail, email);
         I.fillField(this.locators.confirmPassword, password);

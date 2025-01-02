@@ -1,5 +1,3 @@
-'use strict';
-
 const { productPage } = inject();
 
 Then('shopper clicks on the more button', () => {

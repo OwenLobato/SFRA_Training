@@ -5,6 +5,7 @@ var proxyquire = require('proxyquire').noCallThru().noPreserveCache();
 var sinon = require('sinon');
 var mockCollections = require('../../../../mocks/util/collections');
 
+
 describe('priceFactory', function () {
     var price;
     var product;
@@ -44,7 +45,7 @@ describe('priceFactory', function () {
         var priceTable;
 
         afterEach(function () {
-            spyTieredPrice.resetHistory();
+            spyTieredPrice.reset();
         });
 
         it('should produce a tiered price if price tables have more than 1 quantity', function () {
@@ -153,7 +154,7 @@ describe('priceFactory', function () {
         var variantPriceModel = {};
 
         afterEach(function () {
-            spyDefaultPrice.resetHistory();
+            spyDefaultPrice.reset();
         });
 
         it('should use the first variant if product is a main', function () {
@@ -318,7 +319,7 @@ describe('priceFactory', function () {
             });
 
             afterEach(function () {
-                spyDefaultPrice.resetHistory();
+                spyDefaultPrice.reset();
             });
 
             it('should swap sales price for promo price', function () {

@@ -1,5 +1,3 @@
-'use strict';
-
 const I = actor();
 
 module.exports = {
@@ -7,7 +5,7 @@ module.exports = {
         consentTrackModal: '.modal-content',
         consentTrackAffirm: '.affirm.btn.btn-primary',
         searchField: 'input.form-control.search-field',
-        searchedImage: 'a>div>img.swatch-circle',
+        searchedImage: 'a>img.swatch-circle',
         loginButton: '.user-message',
         subscribeEmail: 'input.form-control',
         subscribeButton: '.subscribe-email',
@@ -28,9 +26,8 @@ module.exports = {
     },
     search(product) {
         I.fillField(this.locators.searchField, product);
-        I.waitForElement(this.locators.searchedImage, 3);
+        I.waitForElement(this.locators.searchedImage);
         I.click(this.locators.searchedImage);
-        I.wait(3);
     },
     subscribeList(email) {
         I.fillField('hpEmailSignUp', email);

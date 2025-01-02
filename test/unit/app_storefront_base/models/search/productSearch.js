@@ -75,9 +75,9 @@ describe('ProductSearch model', function () {
     stubGetPageSize.returns(defaultPageSize);
 
     afterEach(function () {
-        spySetStart.resetHistory();
-        spySetPageSize.resetHistory();
-        stubAppendQueryParams.resetHistory();
+        spySetStart.reset();
+        spySetPageSize.reset();
+        stubAppendQueryParams.reset();
     });
 
     describe('.getRefinements()', function () {

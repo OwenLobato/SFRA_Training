@@ -5,6 +5,7 @@ var proxyquire = require('proxyquire').noCallThru().noPreserveCache();
 var mockCollections = require('../../../../mocks/util/collections');
 var sinon = require('sinon');
 
+
 describe('Tiered Price Model', function () {
     function MockQuantity(qty) {
         this.getValue = function () { return qty; };
@@ -38,7 +39,7 @@ describe('Tiered Price Model', function () {
     });
 
     afterEach(function () {
-        stubDefaultPrice.resetHistory();
+        stubDefaultPrice.reset();
     });
 
     it('should set startingFromPrice to the lowest tier price', function () {

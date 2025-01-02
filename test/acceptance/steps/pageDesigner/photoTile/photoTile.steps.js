@@ -1,5 +1,3 @@
-'use strict';
-
 const { I, pageDesigner } = inject();
 
 Then('shopper should see the photo tile component', () => {

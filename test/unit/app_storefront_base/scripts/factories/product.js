@@ -158,6 +158,7 @@ describe('Product Factory', function () {
         };
         var result = productFactory.get(params);
 
+
         assert.equal(result, 'full product');
         assert.isTrue(stubFullProduct.calledWith({}, options.apiProduct, options));
     });
@@ -201,6 +202,7 @@ describe('Product Factory', function () {
         };
         var result = productFactory.get(params);
 
+
         assert.equal(result, 'full product');
         assert.isTrue(stubFullProduct.calledWith({}, options.apiProduct, options));
     });
@@ -222,6 +224,7 @@ describe('Product Factory', function () {
         };
         var result = productFactory.get(params);
 
+
         assert.equal(result, 'full product');
         assert.isTrue(stubFullProduct.calledWith({}, options.apiProduct, options));
     });
@@ -241,6 +244,7 @@ describe('Product Factory', function () {
             productType: 'standard'
         };
         var result = productFactory.get(params);
+
 
         assert.equal(result, 'full product');
         assert.isTrue(stubFullProduct.calledWith({}, options.apiProduct, options));
@@ -263,6 +267,7 @@ describe('Product Factory', function () {
         };
         var result = productFactory.get(params);
 
+
         assert.equal(result, 'product set');
         assert.isTrue(stubProductSet.calledWith({}, options.apiProduct, options, productFactory));
     });
@@ -283,6 +288,7 @@ describe('Product Factory', function () {
             productType: 'bundle'
         };
         var result = productFactory.get(params);
+
 
         assert.equal(result, 'product bundle');
         assert.isTrue(stubProductBundle.calledWith({}, options.apiProduct, options, productFactory));
@@ -367,6 +373,7 @@ describe('Product Factory', function () {
         };
         var result = productFactory.get(params);
 
+
         assert.equal(result, 'full product');
         assert.isTrue(stubFullProduct.calledWith({}, options.apiProduct, options));
     });
@@ -388,6 +395,7 @@ describe('Product Factory', function () {
             productType: 'master'
         };
         var result = productFactory.get(params);
+
 
         assert.equal(result, 'full product');
         assert.isTrue(stubFullProduct.calledWith({}, options.apiProduct, options));
@@ -433,11 +441,9 @@ describe('Product Factory', function () {
             }
         };
         productMock.optionModel = {
-            options: new ArrayList([{
-                productName: 'someName',
+            options: new ArrayList([{ productName: 'someName',
                 optionID: 'someID',
-                optionValueID: 'someValue'
-            }]),
+                optionValueID: 'someValue' }]),
             getSelectedOptionValue: function () {
                 return { displayValue: 'someValue' };
             }
@@ -606,6 +612,7 @@ describe('Product Factory', function () {
             productType: 'master'
         };
         var result = productFactory.get(params);
+
 
         assert.equal(result, 'bonus product');
         assert.isTrue(stubBonusProduct.calledWith({}, options.apiProduct, options, params.duuid));

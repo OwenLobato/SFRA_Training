@@ -1,8 +1,4 @@
-'use strict';
-
-const {
-    I, productPage, cartPage, data
-} = inject();
+const { I, productPage, cartPage, data } = inject();
 
 Then('shopper opens product quick view from home page', () => {
     productPage.openProductQuickView(data.product3.productLinkQV);

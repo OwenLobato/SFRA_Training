@@ -16,8 +16,8 @@ describe('Call hook', function () {
     });
 
     beforeEach(function () {
-        hasHookSpy.resetHistory();
-        callHookSpy.resetHistory();
+        hasHookSpy.reset();
+        callHookSpy.reset();
     });
 
     it('should call hook fallback with single argument', function () {

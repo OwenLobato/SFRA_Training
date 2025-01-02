@@ -1,0 +1,41 @@
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .logo {
+        display: block;
+        margin: 0 auto;
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 30px;
+    }
+
+    .date {
+        font-size: 16px;
+        color: #666;
+        margin-top: 10px;
+    }
+
+    .status, .services {
+        font-size: 16px;
+        color: #666;
+        margin-top: 10px;
+    }
+</style>

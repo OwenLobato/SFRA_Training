@@ -1,0 +1,16 @@
+<div class="modal-container">
+    <div class="column">
+        <div class="row">
+            <span class="value image">
+                <img src="${URLUtils.staticURL('/icons/general-message.png')}" alt="${Resource.msg('pod.alerts.section.messages', 'podalerts', null)}" />&nbsp;
+                <isprint value="${pdict.body}" encoding="off" />
+            </span>
+        </div>
+        <br /><hr />
+        <div class="row">
+            <span class="value">
+                <strong>${Resource.msg('pod.alerts.section.messages.table.posted', 'podalerts', null)}:</strong> ${pdict.hour}, ${pdict.date} ·<isprint value="${Resource.msgf('pod.alerts.lastupdate', 'podalerts', null, pdict.updatedHour + ', ' +  pdict.updatedDate)}" encoding="off" />
+            </span>
+        </div>
+    </div>
+</div>

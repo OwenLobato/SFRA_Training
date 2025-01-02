@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="OrganizationPreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="podalerts_bmAlerts">
+                <display-name xml:lang="x-default">Enable Business Manager Alerts</display-name>
+                <description xml:lang="x-default">Check if you want receive business manager alerts.</description>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="podalerts_bmAlertsGeneralMessages">
+                <display-name xml:lang="x-default">Enable General Message Alerts</display-name>
+                <description xml:lang="x-default"> Check if you want receive business manager alerts regarding Salesforce General messages.</description>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="podalerts_email">
+                <display-name xml:lang="x-default">Notification E-mail</display-name>
+                <description xml:lang="x-default">Leave blank if you don't want to receive POD alerts by e-mail</description>
+                <type>set-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="podalerts_podNumber">
+                <display-name xml:lang="x-default">POD Number</display-name>
+                <description xml:lang="x-default">POD number where your instances are located.</description>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="podalerts_sendEmailFrom">
+                <display-name xml:lang="x-default">Email from</display-name>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="POD Alerts">
+                <display-name xml:lang="x-default">POD Alerts</display-name>
+                <attribute attribute-id="podalerts_podNumber"/>
+                <attribute attribute-id="podalerts_email"/>
+                <attribute attribute-id="podalerts_bmAlerts"/>
+                <attribute attribute-id="podalerts_bmAlertsGeneralMessages"/>
+                <attribute attribute-id="podalerts_sendEmailFrom"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+</metadata>

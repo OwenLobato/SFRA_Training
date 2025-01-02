@@ -1,5 +1,3 @@
-'use strict';
-
 var assert = require('chai').assert;
 var request = require('request-promise');
 var config = require('../it.config');
@@ -123,7 +121,7 @@ describe('Cart: Selecting Shipping Methods', function () {
             'discountsHtml': '\n'
         };
 
-        var shipMethodId = '003'; // 003 = Overnight
+        var shipMethodId = '003';   // 003 = Overnight
 
         myRequest.method = 'POST';
         myRequest.url = config.baseUrl + '/Cart-SelectShippingMethod?methodID=' + shipMethodId;
@@ -158,7 +156,7 @@ describe('Cart: Selecting Shipping Methods', function () {
             'discountsHtml': '\n'
         };
 
-        var shipMethodId = '001'; // 001 = Ground
+        var shipMethodId = '001';   // 001 = Ground
 
         myRequest.method = 'POST';
         myRequest.url = config.baseUrl + '/Cart-SelectShippingMethod?methodID=' + shipMethodId;
@@ -191,7 +189,7 @@ describe('Cart: Selecting Shipping Methods', function () {
             'discountsHtml': '\n'
         };
 
-        var shipMethodId = '002'; // 002 = 2-Day Express
+        var shipMethodId = '002';   // 002 = 2-Day Express
 
         myRequest.method = 'POST';
         myRequest.url = config.baseUrl + '/Cart-SelectShippingMethod?methodID=' + shipMethodId;
@@ -225,7 +223,7 @@ describe('Cart: Selecting Shipping Methods', function () {
             'discountsHtml': '\n'
         };
 
-        var shipMethodId = '005'; // 005 = Store Pickup
+        var shipMethodId = '005';   // 005 = Store Pickup
 
         myRequest.method = 'POST';
         myRequest.url = config.baseUrl + '/Cart-SelectShippingMethod?methodID=' + shipMethodId;
@@ -259,7 +257,7 @@ describe('Cart: Selecting Shipping Methods', function () {
             'discountsHtml': '\n'
         };
 
-        var shipMethodId = '012'; // 012 = Express
+        var shipMethodId = '012';   // 012 = Express
 
         myRequest.method = 'POST';
         myRequest.url = config.baseUrl + '/Cart-SelectShippingMethod?methodID=' + shipMethodId;
@@ -293,7 +291,7 @@ describe('Cart: Selecting Shipping Methods', function () {
             'discountsHtml': '\n'
         };
 
-        var shipMethodId = '021'; // 021 = USPS
+        var shipMethodId = '021';   // 021 = USPS
 
         myRequest.method = 'POST';
         myRequest.url = config.baseUrl + '/Cart-SelectShippingMethod?methodID=' + shipMethodId;
@@ -327,7 +325,7 @@ describe('Cart: Selecting Shipping Methods', function () {
             'discountsHtml': '\n'
         };
 
-        var shipMethodId = '004'; // 004 = Super Saver, has excluded Products
+        var shipMethodId = '004';   // 004 = Super Saver, has excluded Products
         var groundShipMethodId = '001';
 
         myRequest.method = 'POST';

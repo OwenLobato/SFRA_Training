@@ -1,3 +1,5 @@
+'use strict';
+
 var proxyquire = require('proxyquire').noCallThru().noPreserveCache();
 var sinon = require('sinon');
 var templateStub = sinon.stub();
@@ -71,6 +73,7 @@ templateStub.returns({
         return { text: 'rendered html' };
     }
 });
+
 
 function proxyModel() {
     return proxyquire('../../../cartridges/app_storefront_base/cartridge/scripts/helpers/storeHelpers', {

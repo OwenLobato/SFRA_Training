@@ -1,0 +1,3 @@
+<div class="error-message">
+    <p><isprint value="${Resource.msg('pod.alerts.error', 'podalerts', null)}" /></p>
+</div>

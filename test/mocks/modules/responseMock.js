@@ -1,3 +1,5 @@
+'use strict';
+
 function Response() {
     this.base = {};
 }

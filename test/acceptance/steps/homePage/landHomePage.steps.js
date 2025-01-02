@@ -1,5 +1,3 @@
-'use strict';
-
 const { I, data, homePage } = inject();
 
 When('shopper selects yes or no for tracking consent', () => {

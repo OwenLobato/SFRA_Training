@@ -1,11 +1,10 @@
-'use strict';
-
 // checkoutHelpers.js unit tests
 
 var assert = require('chai').assert;
 var sinon = require('sinon');
 
 var checkoutHelpers = require('../../../../mocks/helpers/checkoutHelpers');
+
 
 describe('checkoutHelpers', function () {
     describe('prepareShippingForm', function () {
@@ -707,10 +706,10 @@ describe('checkoutHelpers', function () {
     describe('setGift', function () {
         var mockShipment = {
             setGift: function () {
-
+                return;
             },
             setGiftMessage: function () {
-
+                return;
             }
         };
 

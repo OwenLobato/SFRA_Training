@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>${pdict.subject}</title>
+    <isinclude template="/email/styles" />
+</head>
+<body>
+    <div class="container">
+        <img src="${URLUtils.staticURL('/icons/general-message.png')}" alt="${pdict.subject}" class="logo" />
+        <h1 class="title">${pdict.subject}</h1>
+        <p class="date">${Resource.msg('pod.alerts.section.maintenance.table.date', 'podalerts', null)}: ${pdict.date}</p>
+        <p class="status"><i class="icono"></i>${Resource.msg('pod.alerts.section.maintenance.table.status', 'podalerts', null)}: ${pdict.status}</p>
+        <div class="content">
+            <p><isprint value="${pdict.body}" encoding="off" /></p>
+        </div>
+    </div>
+</body>
+</html>

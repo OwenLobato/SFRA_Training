@@ -1,0 +1,14 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td class="table_title aldi" width="100%" nowrap="nowrap">
+                <isprint value="${pdict.title}" />
+            </td>
+        </tr>
+        <tr>
+            <td class="w e s">
+                <img src="/on/demandware.static/Sites-Site/-/default/v80fe9284546aef95c60a6ddafe89a8b717775abb/images/space.gif" width="1" height="2" alt="" border="0">
+            </td>
+        </tr>
+    </tbody>
+</table>

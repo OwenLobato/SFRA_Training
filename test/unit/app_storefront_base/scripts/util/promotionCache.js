@@ -1,4 +1,3 @@
-'use strict';
 
 const { assert } = require('chai');
 const sinon = require('sinon');
@@ -35,8 +34,7 @@ describe('promotionCache', () => {
                         cacheKey: 'ABCD',
                         promoIds: ['promoIds']
                     })
-                }
-            };
+                } };
             global.request = {
                 requestID: 'ABCD-10-12'
             };

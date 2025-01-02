@@ -23,49 +23,50 @@ var categoryMock = {
 var stubSearchModel = sinon.stub();
 
 describe('Helpers - Product', function () {
-    var productHelpers = proxyquire('../../../../../cartridges/app_storefront_base/cartridge/scripts/helpers/productHelpers', {
-        '*/cartridge/scripts/util/collections': mockCollections,
-        '*/cartridge/scripts/helpers/urlHelpers': {
-            appendQueryParams: function () { return 'some url'; }
-        },
-        'dw/campaign/PromotionMgr': {
-            activeCustomerPromotions: {
-                getProductPromotions: function () { return 'promotions'; }
+    var productHelpers = proxyquire(
+        '../../../../../cartridges/app_storefront_base/cartridge/scripts/helpers/productHelpers', {
+            '*/cartridge/scripts/util/collections': mockCollections,
+            '*/cartridge/scripts/helpers/urlHelpers': {
+                appendQueryParams: function () { return 'some url'; }
+            },
+            'dw/campaign/PromotionMgr': {
+                activeCustomerPromotions: {
+                    getProductPromotions: function () { return 'promotions'; }
+                }
+            },
+            'dw/web/URLUtils': {
+                url: function () { return 'some url'; }
+            },
+            '*/cartridge/scripts/factories/product': {
+                get: stubProductFactoryGet
+            },
+            '*/cartridge/scripts/helpers/pageMetaHelper': {
+                setPageMetaData: function () {},
+                setPageMetaTags: function () {}
+            },
+            '*/cartridge/scripts/helpers/structuredDataHelper': {
+                getProductSchema: function () { return 'schema'; }
+            },
+            'dw/web/Resource': {
+                msg: function () {
+                    return 'some string';
+                }
+            },
+            'dw/catalog/CatalogMgr': {
+                getCategory: stubCategoryMock
+            },
+            'dw/catalog/ProductSearchModel': stubSearchModel,
+            'dw/catalog/ProductMgr': {
+                getProduct: stubGetProduct
+            },
+            'dw/experience/PageMgr': {
+                getPageByProduct: stubGetPage,
+                getPageByCategory: stubGetPage
+            },
+            'dw/util/HashMap': function () {
+                this.isHashMap = true;
             }
-        },
-        'dw/web/URLUtils': {
-            url: function () { return 'some url'; }
-        },
-        '*/cartridge/scripts/factories/product': {
-            get: stubProductFactoryGet
-        },
-        '*/cartridge/scripts/helpers/pageMetaHelper': {
-            setPageMetaData: function () {},
-            setPageMetaTags: function () {}
-        },
-        '*/cartridge/scripts/helpers/structuredDataHelper': {
-            getProductSchema: function () { return 'schema'; }
-        },
-        'dw/web/Resource': {
-            msg: function () {
-                return 'some string';
-            }
-        },
-        'dw/catalog/CatalogMgr': {
-            getCategory: stubCategoryMock
-        },
-        'dw/catalog/ProductSearchModel': stubSearchModel,
-        'dw/catalog/ProductMgr': {
-            getProduct: stubGetProduct
-        },
-        'dw/experience/PageMgr': {
-            getPageByProduct: stubGetPage,
-            getPageByCategory: stubGetPage
-        },
-        'dw/util/HashMap': function () {
-            this.isHashMap = true;
-        }
-    });
+        });
 
     var productMock = {};
     var setSelectedAttributeValueSpy = sinon.spy();
@@ -166,7 +167,7 @@ describe('Helpers - Product', function () {
         beforeEach(function () {
             stubProductFactoryGet.reset();
             stubGetProduct.reset();
-            renderSpy.resetHistory();
+            renderSpy.reset();
         });
 
         it('should return a with product/productDetails template', function () {
@@ -230,7 +231,7 @@ describe('Helpers - Product', function () {
         var res = { print: printSpy };
 
         this.beforeEach(function () {
-            printSpy.resetHistory();
+            printSpy.reset();
             stubGetPage.reset();
             stubGetPage.resetBehavior();
         });
@@ -448,10 +449,8 @@ describe('Helpers - Product', function () {
 
     describe('getCurrentOptionModel() function', function () {
         it('should set the selected option value on the product option model', function () {
-            var currentOptionModel = productHelpers.getCurrentOptionModel(
-                optionModelMock,
-                selectedOptionsMock
-            );
+            var currentOptionModel = productHelpers.getCurrentOptionModel(optionModelMock,
+                selectedOptionsMock);
             assert.isTrue(setSelectedOptionValueStub.calledWith(option1Mock, selectedValueMock));
             assert.deepEqual(currentOptionModel, optionModelMock);
         });
@@ -473,11 +472,8 @@ describe('Helpers - Product', function () {
 
     describe('getOptionValues() function', function () {
         it('should return a product option\'s value sorted by price', function () {
-            var optionValues = productHelpers.getOptionValues(
-                optionModelMock,
-                option1Mock,
-                optionValuesMock
-            );
+            var optionValues = productHelpers.getOptionValues(optionModelMock, option1Mock,
+                optionValuesMock);
             var expected = [{
                 id: 'value2',
                 displayValue: 'Value 2',

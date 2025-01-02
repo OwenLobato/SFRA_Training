@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<extensions xmlns="http://www.demandware.com/xml/bmmodules/2007-12-11" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.demandware.com/xml/bmmodules/2007-12-11 bmext.xsd">
+    <menuitem id="pod_alerts" position="4500" site="false">
+        <name xml:lang="x-default">POD Status</name>
+        <short_description xml:lang="x-default">Check the status of your POD</short_description>
+        <description xml:lang="x-default">This menu contains some interesting tools about the status of your POD.</description>
+        <icon>icons/alert.png</icon>
+    </menuitem>
+
+    <menuaction id="pod_alerts_status" menupath="pod_alerts" position="100" site="false">
+        <name xml:lang="x-default">B2C Commerce Status</name>
+        <short_description xml:lang="x-default">Check the status of the B2C Commerce instances</short_description>
+        <description xml:lang="x-default">This option will show an overall status of all Salesforce Commerce Cloud instances.</description>
+        <exec pipeline="PODAlerts" node="Status" />
+        <sub-pipelines>
+            <pipeline name="PODAlerts-Status" />
+            <pipeline name="PODAlerts-Services" />
+            <pipeline name="PODAlerts-Refresh" />
+            <pipeline name="PODAlerts-TestEmail" />
+        </sub-pipelines>
+        <parameters>
+            <parameter name="menuname" value="Status" />
+            <parameter name="mainmenuname" value="POD Notifications" />
+        </parameters>
+        <icon>icons/store.png</icon>
+    </menuaction>
+
+    <menuaction id="pod_alerts_maintenances" menupath="pod_alerts" position="200" site="false">
+        <name xml:lang="x-default">Maintenances</name>
+        <short_description xml:lang="x-default">Check past and scheduled maintenances for your POD</short_description>
+        <description xml:lang="x-default">Check past and scheduled maintenances for your POD</description>
+        <exec pipeline="PODAlerts" node="Maintenances" />
+        <sub-pipelines>
+            <pipeline name="PODAlerts-Maintenances" />
+            <pipeline name="PODAlerts-Maintenance" />
+            <pipeline name="PODAlerts-Refresh" />
+        </sub-pipelines>
+        <parameters>
+            <parameter name="menuname" value="Maintenances" />
+            <parameter name="mainmenuname" value="POD Notifications" />
+        </parameters>
+        <icon>icons/maintenance.png</icon>
+    </menuaction>
+
+    <menuaction id="pod_alerts_podstatus" menupath="pod_alerts" position="300" site="false">
+        <name xml:lang="x-default">My POD Status</name>
+        <short_description xml:lang="x-default">Check the status of your POD</short_description>
+        <description xml:lang="x-default">This menu contains some interesting tools about the status of your POD.</description>
+        <exec pipeline="PODAlerts" node="MyPOD" />
+        <sub-pipelines>
+            <pipeline name="PODAlerts-MyPOD" />
+            <pipeline name="PODAlerts-Maintenance" />
+            <pipeline name="PODAlerts-Refresh" />
+        </sub-pipelines>
+        <parameters>
+            <parameter name="menuname" value="My POD Status" />
+            <parameter name="mainmenuname" value="POD Notifications" />
+        </parameters>
+        <icon>icons/pod.png</icon>
+    </menuaction>
+
+    <menuaction id="pod_alerts_messages" menupath="pod_alerts" position="400" site="false">
+        <name xml:lang="x-default">General Messages</name>
+        <short_description xml:lang="x-default">Check the general messages for the states of Salesforce Services</short_description>
+        <description xml:lang="x-default">Check the general messages for the states of Salesforce services</description>
+        <exec pipeline="PODAlerts" node="Messages" />
+        <sub-pipelines>
+            <pipeline name="PODAlerts-Messages" />
+            <pipeline name="PODAlerts-Message" />
+            <pipeline name="PODAlerts-Refresh" />
+        </sub-pipelines>
+        <parameters>
+            <parameter name="menuname" value="Messages" />
+            <parameter name="mainmenuname" value="POD Notifications" />
+        </parameters>
+        <icon>icons/chat.png</icon>
+    </menuaction>
+
+</extensions>

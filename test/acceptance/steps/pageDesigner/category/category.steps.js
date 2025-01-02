@@ -1,5 +1,3 @@
-'use strict';
-
 const { I, data, pageDesigner } = inject();
 
 Then('shopper should see the category components', () => {

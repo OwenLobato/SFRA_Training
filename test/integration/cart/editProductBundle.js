@@ -1,5 +1,3 @@
-'use strict';
-
 var assert = require('chai').assert;
 var request = require('request-promise');
 var config = require('../it.config');
@@ -10,7 +8,7 @@ chai.use(chaiSubset);
 describe('Edit product bundle', function () {
     this.timeout(45000);
 
-    var variantPid1 = 'womens-jewelry-bundleM'; // womens jewelry bundle
+    var variantPid1 = 'womens-jewelry-bundleM';   // womens jewelry bundle
     var qty1 = 1;
 
     var newQty1;
@@ -42,7 +40,7 @@ describe('Edit product bundle', function () {
             // ----- select a shipping method. Need to have shipping method so that shipping cost, sales tax,
             //       and grand total can be calculated
             .then(function () {
-                var shipMethodId = '001'; // 001 = Ground
+                var shipMethodId = '001';   // 001 = Ground
 
                 myRequest.method = 'POST';
                 myRequest.url = config.baseUrl + '/Cart-SelectShippingMethod?methodID=' + shipMethodId;
@@ -63,6 +61,7 @@ describe('Edit product bundle', function () {
         newQty1 = 3;
         var newTotalQty = newQty1;
         var expectQty1 = newQty1;
+
 
         var expectedUpdateRep = {
             'action': 'Cart-EditProductLineItem',
@@ -89,8 +88,7 @@ describe('Edit product bundle', function () {
                         },
                         'availability': {
                             'messages': [
-                                '2 Item(s) in Stock',
-                                '1 item(s) are available for pre-order'
+                                'In Stock'
                             ],
                             'inStockDate': null
                         },

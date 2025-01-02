@@ -1,0 +1,110 @@
+<isdecorate template="application/MenuFrame">
+    <isinclude template="components/modules" />
+    <link href="${URLUtils.staticURL('/css/common.css?v=1.0')}" type="text/css" rel="stylesheet" />
+    <link href="${URLUtils.staticURL('/css/maintenance.css')}" type="text/css" rel="stylesheet" />
+    <link href="${URLUtils.staticURL('/css/mypod.css?v=1.0.0')}" type="text/css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <isbmbreadcrumb
+        link1="${URLUtils.url('ViewApplication-ExpandMenuGroup', 'MenuGroupID', 'AdministrationMenu', 'OverviewPage', 'SiteNavigationBar-ShowAdministrationOverview')}"
+        title1="${Resource.msg('administration','podalerts', null)}"
+        link2="${URLUtils.url('SiteNavigationBar-ShowMenuitemOverview', 'CurrentMenuItemId', 'pod_alerts')}"
+        title2="${Resource.msg('pod.alerts.section','podalerts', null)}"
+        currentsection="${Resource.msg('pod.alerts.section.mypod','podalerts', null)}" />
+
+    <isbmtitle title="${Resource.msgf('pod.alerts.section.mypod.number','podalerts', null, pdict.pod.instance.ID)}" />
+
+    <isbmdescription description="${Resource.msg('pod.alerts.section.mypod.description', 'podalerts', null)}" />
+
+    <isif condition="${pdict.pod.success}">
+        <isinclude template="components/lastupdate" />
+
+        <div class="accordion" id="accordionStatus">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="currentStatus">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="${'#'}collapseCurrentStatus" aria-expanded="true" aria-controls="collapseCurrentStatus">
+                        ${Resource.msg('pod.alerts.status', 'podalerts', null)}
+                    </button>
+                </h2>
+                <div id="collapseCurrentStatus" class="accordion-collapse collapse show" aria-labelledby="currentStatus" data-bs-parent="${'#'}accordionStatus">
+                    <div class="accordion-body">
+                        <div class="main-section">
+
+                            <div class="overall-status-block ${pdict.status[pdict.pod.instance.status]}">
+                                <p class="left-text">${Resource.msg('pod.alerts.status.system', 'podalerts', null)}</p>
+                                <div class="right-container">
+                                    <p class="right-text">${Resource.msg('pod.alerts.status.' + pdict.status[pdict.pod.instance.status], 'podalerts', pdict.pod.instance.status)}</p>
+                                    <img src="${URLUtils.staticURL('/icons/service-' + pdict.status[pdict.pod.instance.status] + '.png')}" alt="${Resource.msg('pod.alerts.status.' + pdict.status[pdict.pod.instance.status], 'podalerts', pdict.pod.instance.status)}" />
+                                </div>
+                            </div>
+
+                            <div class="services-block">
+                                <isloop items="${pdict.pod.instance.services}" alias="service">
+                                    <div class="service">
+                                        <div class="service-header">${Resource.msg('pod.alerts.status.service.' + service.key, 'podalerts', service.key)}</div>
+                                        <div class="service-body">
+                                            <isif condition="${!empty(pdict.pod.instance.affectedServices[service.key])}">
+                                                <img src="${URLUtils.staticURL('/icons/service-' + pdict.status[pdict.pod.instance.status] + '.png')}" alt="${Resource.msg('pod.alerts.status.service.' + service.key, 'podalerts', service.key)}" />
+                                                <isloop items="${pdict.pod.instance.affectedServices[service.key]}" alias="affected">
+                                                    <a href="${'#'}" class="openModal">
+                                                        ${affected.id}
+                                                    </a>
+                                                </isloop>
+                                            <iselse/>
+                                                <img src="${URLUtils.staticURL('/icons/service-available.png')}" alt="${Resource.msg('pod.alerts.status.service.' + service.key, 'podalerts', service.key)}" />
+                                            </isif>
+                                        </div>
+                                    </div>
+                                </isloop>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="podMaintenance">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="${'#'}collapseMaintenances" aria-expanded="false" aria-controls="collapseMaintenances">
+                        ${Resource.msg('pod.alerts.section.maintenance', 'podalerts', null)}
+                    </button>
+                </h2>
+                <div id="collapseMaintenances" class="accordion-collapse collapse" aria-labelledby="podMaintenance" data-bs-parent="${'#'}accordionMaintenance">
+                    <div class="accordion-body">
+                        <table class="maintenance-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">${Resource.msg('pod.alerts.section.maintenance.table.id', 'podalerts', null)}</th>
+                                    <th scope="col"><span>${Resource.msg('pod.alerts.section.maintenance.table.date', 'podalerts', null)}</span></th>
+                                    <th scope="col"><span>${Resource.msg('pod.alerts.section.maintenance.table.status', 'podalerts', null)}</span></th>
+                                    <th scope="col"><span>${Resource.msg('pod.alerts.section.maintenance.table.start', 'podalerts', null)}</span></th>
+                                    <th scope="col"><span>${Resource.msg('pod.alerts.section.maintenance.table.subject', 'podalerts', null)}</span></th>
+                                    <th scope="col"><span>${Resource.msg('pod.alerts.section.maintenance.table.instances', 'podalerts', null)}</span></th>
+                                    <th scope="col"><span>${Resource.msg('pod.alerts.section.maintenance.table.services', 'podalerts', null)}</span></th>
+                                    <th scope="col"><span>${Resource.msg('pod.alerts.section.maintenance.table.type', 'podalerts', null)}</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <isloop items="${pdict.pod.instance.maintenances}" alias="maintenance">
+                                    <tr>
+                                        <td><a href="${'#'}" class="openModal" data-url="${URLUtils.https('PODAlerts-Maintenance', 'MaintenanceID', maintenance.ID)}">${maintenance.ID}</a></td>
+                                        <td><isprint value="${maintenance.date}" /></td>
+                                        <td><span>${Resource.msg('pod.alerts.section.maintenance.status.' + maintenance.status, 'podalerts', maintenance.status)}</span></td>
+                                        <td><isprint value="${maintenance.startTime}" /></td>
+                                        <td><isprint value="${maintenance.subject}" /></td>
+                                        <td class="max-width"><span><isprint value="${maintenance.pods.join(', ')}" /></span></td>
+                                        <td class="max-width"><span><isprint value="${maintenance.services.join(', ')}" /></span></td>
+                                        <td><span>${Resource.msg('pod.alerts.section.maintenance.type.' + maintenance.type, 'podalerts', maintenance.type)}</span></td>
+                                    </tr>
+                                </isloop>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <isinclude template="components/modal" />
+    <iselse/>
+        <isinclude template="components/error" />
+    </isif>
+
+</isdecorate>

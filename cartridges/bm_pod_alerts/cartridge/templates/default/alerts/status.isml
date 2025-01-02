@@ -1,0 +1,45 @@
+<isdecorate template="application/MenuFrame">
+    <isinclude template="components/modules" />
+    <link href="${URLUtils.staticURL('/css/common.css?v=1.0')}" type="text/css" rel="stylesheet" />
+    <link href="${URLUtils.staticURL('/css/status.css?v=1.1.7')}" type="text/css" rel="stylesheet" />
+
+    <isbmbreadcrumb
+        link1="${URLUtils.url('ViewApplication-ExpandMenuGroup', 'MenuGroupID', 'AdministrationMenu', 'OverviewPage', 'SiteNavigationBar-ShowAdministrationOverview')}"
+        title1="${Resource.msg('administration','podalerts', null)}"
+        link2="${URLUtils.url('SiteNavigationBar-ShowMenuitemOverview', 'CurrentMenuItemId', 'pod_alerts')}"
+        title2="${Resource.msg('pod.alerts.section','podalerts', null)}"
+        currentsection="${Resource.msg('pod.alerts.section.b2ccommerce','podalerts', null)}" />
+
+    <isbmtitle title="${Resource.msg('pod.alerts.section.b2ccommerce','podalerts', null)}" />
+
+    <isbmdescription description="${Resource.msg('pod.alerts.section.b2ccommerce.description', 'podalerts', null)}" />
+
+    <div class="box">
+        <isloop items="${pdict.services}" alias="service">
+            <div class="service-block">
+                <img src="${URLUtils.staticURL('/icons/service-' + service + '.png')}" alt="${service}" class="service-block-icon" width="25" height="25" />
+                <div class="service-block-info">
+                    <span class="service-block-text">${Resource.msg('pod.alerts.status.' + service, 'podalerts', 'null')}</span>
+                    <span class="service-block-subtext">${Resource.msg('pod.alerts.status.' + service + '.description', 'podalerts', 'null')}</span>
+                </div>
+            </div>
+        </isloop>
+    </div>
+
+    <isif condition="${pdict.commerceStatus.success}">
+        <isinclude template="components/lastupdate" />
+
+        <div class="block-container">
+            <isloop items="${pdict.commerceStatus.instances}" alias="instance">
+                <a href="${'#'}" class="block openModal" data-url="${URLUtils.https('PODAlerts-Services', 'POD', instance.ID)}">
+                    <span class="block-text">${instance.ID}</span>
+                    <img src="${URLUtils.staticURL('/icons/service-' + pdict.icons[instance.status] + '.png')}" width="20" height="20" alt="${instance.ID}" />
+                </a>
+            </isloop>
+        </div>
+        <isinclude template="components/modal" />
+    <iselse/>
+        <isinclude template="components/error" />
+    </isif>
+
+</isdecorate>
