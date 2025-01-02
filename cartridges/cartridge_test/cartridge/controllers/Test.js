@@ -35,7 +35,8 @@ server.replace(
 
         pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
 
-        var page = PageMgr.getPage('test-store');
+        // var page = PageMgr.getPage('test-store');
+        var page = null;
 
         if (page && page.isVisible()) {
             res.page('test-store');
@@ -87,6 +88,14 @@ server.get('Single', function (req, res, next) {
     } else {
         res.json({ success : false});
     }
+    next();
+});
+
+server.get('iframe', function (req, res, next) {
+    // var Site = require('dw/system/Site');
+    // var urlFrame = Site.getCurrent().getCustomPreferenceValue('framePath');
+
+    res.render('test/frame', { urlFrame: 'https://corporativoramaconsulta.turbopacmx.com/Clientes.Consulta/' });
     next();
 });
 

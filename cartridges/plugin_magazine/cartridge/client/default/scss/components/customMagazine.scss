@@ -1,0 +1,17 @@
+#magazineIframe {
+  height: 370px;
+  width: 100%;
+  border-style: none;
+}
+
+@media screen and (min-width: 768px) {
+  #magazineIframe {
+      height: 670px;
+  }
+}
+
+.magazine-footer{
+  margin-inline: 16px;
+  font-size: 16px;
+  text-align:center;
+}

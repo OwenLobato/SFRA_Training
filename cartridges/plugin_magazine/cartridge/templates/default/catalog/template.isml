@@ -1,0 +1,11 @@
+<isdecorate template="common/layout/page">
+  <isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('css/components/customMagazine.css');
+  </isscript>
+
+  <iframe id="magazineIframe" src="${URLUtils.url('Catalog-Magazine')}"></iframe>
+
+  <p class="magazine-footer">Todos los descuentos son aplicados sobre precio de lista y están sujetos a disponibilidad o hasta agotar existencias. Consulte marcas y bases de promociones. Aplican restricciones. Vigencia del 1 al 31 de Diciembre de 2024.</p>
+
+</isdecorate>
