@@ -11,8 +11,9 @@
 
   <div class="list-group special-section">
     <p>Click para ir al controlador</p>
-    <a href="${URLUtils.url('Catalog-Show')}" class="list-group-item list-group-item-action d-flex justify-content-center">Catalog-Show</a>
-    <a href="${URLUtils.url('Test-iframe')}" class="list-group-item list-group-item-action d-flex justify-content-center">Test-iframe</a>
+    <isloop items="${pdict.controllersURL}" var="controllerURL">
+      <a href="${URLUtils.url(controllerURL)}" class="list-group-item list-group-item-action d-flex justify-content-center">${controllerURL}</a>
+    </isloop>
   </div>
 
   <iscontentasset aid="content-sections" />

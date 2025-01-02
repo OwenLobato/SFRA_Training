@@ -32,6 +32,7 @@ server.replace(
         var Site = require('dw/system/Site');
         var PageMgr = require('dw/experience/PageMgr');
         var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
+        var controllersURL = require('*/cartridge/config/ControllersURL');
 
         pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
 
@@ -41,7 +42,7 @@ server.replace(
         if (page && page.isVisible()) {
             res.page('test-store');
         } else {
-            res.render('sections/testShow', { name: 'Owen Lobato' });
+            res.render('sections/testShow', { name: 'Owen Lobato', controllersURL: controllersURL });
         }
         next();
     },
