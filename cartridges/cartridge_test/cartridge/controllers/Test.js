@@ -35,7 +35,8 @@ server.replace(
 
         pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
 
-        var page = PageMgr.getPage('test-store');
+        // var page = PageMgr.getPage('test-store');
+        var page = null;
 
         if (page && page.isVisible()) {
             res.page('test-store');
@@ -46,5 +47,56 @@ server.replace(
     },
     pageMetaData.computedPageMetaData
 );
+
+server.get('Service', function (req, res, next) {
+    var testServiceHelper = require('*/cartridge/scripts/helpers/testServiceHelper');
+
+    var category = req.httpParameterMap.categoryName.value || 'jewelery';
+
+    var serviceData1 = testServiceHelper.retrieveAllProducts();
+    var serviceData2 = testServiceHelper.retrieveAllProductsByCategory(category);
+
+
+    res.render('sections/testService', {
+        category: category,
+        data1: serviceData1,
+        data2: serviceData2
+    });
+
+    next();
+});
+
+server.get('Single', function (req, res, next) {
+    /* global empty */
+    var testServiceHelper = require('*/cartridge/scripts/helpers/testServiceHelper');
+
+    var  productId = req.httpParameterMap.productId.value;
+
+    if(!empty(productId)) {
+        var Template = require('dw/util/Template');
+        var serviceProductData = testServiceHelper.retrieveAllProducts(productId);
+
+        if(Object.prototype.hasOwnProperty.call(serviceProductData, 'success') && !empty(serviceProductData.success)) {
+            res.json({ success : false});
+        } else {
+            res.json({
+                success : true,
+                title: 'Producto #' + serviceProductData.data.product.id,
+                body : new Template('components/modals/serviceProduct').render(testServiceHelper.transformObjectAsMap(serviceProductData.data.product)).text
+            });
+        }
+    } else {
+        res.json({ success : false});
+    }
+    next();
+});
+
+server.get('iframe', function (req, res, next) {
+    // var Site = require('dw/system/Site');
+    // var urlFrame = Site.getCurrent().getCustomPreferenceValue('framePath');
+
+    res.render('test/frame', { urlFrame: 'https://corporativoramaconsulta.turbopacmx.com/Clientes.Consulta/' });
+    next();
+});
 
 module.exports = server.exports();

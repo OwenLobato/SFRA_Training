@@ -17,6 +17,14 @@ test/appium/webdriver/config.json
 .idea
 test/acceptance/report
 test/integration/config.json
-cartridges/*/cartridge/static
-!cartridges/bm_pod_alerts/cartridge/static
 .nyc_output
+cartridges/*/cartridge/static
+!cartridges/bm_pod_alerts/cartridge/static/
+!cartridges/plugin_magazine/cartridge/static/
+!cartridges/cartridge_test/cartridge/static/default/js
+!cartridges/cartridge_test/cartridge/static/default/css/components/serviceStyles.css
+!cartridges/cartridge_test/cartridge/static/default/css/components/serviceStyles.css
+!cartridges/cartridge_test/cartridge/static/default/js
+
+
+

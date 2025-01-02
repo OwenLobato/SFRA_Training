@@ -24,14 +24,18 @@
                 <div class="col-12">
                     <div class="navbar-header brand">
                         <a class="logo-home" href="https://puntocommerce.com/" title="${ Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg('global.home', 'common', null)) }">
-                            <img class="hidden-md-down" src="${URLUtils.staticURL('/images/Logo-PC.png')}" alt="${Resource.msg('global.storename.PC', 'common', null)}" />
-                            <img class="d-lg-none" src="${URLUtils.staticURL('/images/Mini-logo-PC.png')}" alt="${Resource.msg('global.storename.PC', 'common', null)}" />
+                            <iscomment> <img class="hidden-md-down" src="${URLUtils.staticURL('/images/Logo-PC.png')}" alt="${Resource.msg('global.storename.PC', 'common', null)}" /> </iscomment>
+                            <img class="hidden-md-down" src="https://puntocommerce.com/wp-content/uploads/2021/06/Logo-punto-commerce.png" alt="${Resource.msg('global.storename.PC', 'common', null)}" />
+                            <iscomment> <img class="d-lg-none" src="${URLUtils.staticURL('/images/Mini-logo-PC.png')}" alt="${Resource.msg('global.storename.PC', 'common', null)}" /> </iscomment>
+                            <img class="d-lg-none" src="https://puntocommerce.com/wp-content/uploads/2021/06/cropped-Logo-original-270x270.png" alt="${Resource.msg('global.storename.PC', 'common', null)}" />
                         </a>
                     </div>
                     <div class="navbar-header brand2">
                         <a class="logo-home" href="${URLUtils.url('Home-Show')}" title="${ Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg('global.home', 'common', null)) }">
-                            <img class="hidden-md-down" src="${URLUtils.staticURL('/images/logo.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
-                            <img class="d-lg-none" src="${URLUtils.staticURL('/images/logo-small.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
+                            <iscomment> <img class="hidden-md-down" src="${URLUtils.staticURL('/images/logo.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" />
+                            <img class="d-lg-none" src="${URLUtils.staticURL('/images/logo-small.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" /> </iscomment>
+                            <img class="hidden-md-down" src="https://production-sitegenesis-dw.demandware.net/on/demandware.static/Sites-RefArch-Site/-/default/dw220eb3cf/images/logo.svg" alt="${Resource.msg('global.storename', 'common', null)}" />
+                            <img class="d-lg-none" src="https://production-sitegenesis-dw.demandware.net/on/demandware.static/Sites-RefArch-Site/-/default/dwf9a8b53a/images/logo-small.svg" alt="${Resource.msg('global.storename', 'common', null)}" />
                         </a>
                     </div>
                     <div class="navbar-header">

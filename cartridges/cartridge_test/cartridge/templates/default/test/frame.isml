@@ -1,0 +1,14 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/contactUs.css');
+    </isscript>
+
+    <div class="contact-us-landing-page">
+        <isif condition="${pdict.urlFrame && !empty(pdict.urlFrame)}">
+            <iframe id="iframe" src="${pdict.urlFrame}" width="910" height="1134" class="border-0 w-100"></iframe>
+        <iselse/>
+            <p>No se puede mostrar el i-frame</p>
+        </isif>
+    </div>
+</isdecorate>
