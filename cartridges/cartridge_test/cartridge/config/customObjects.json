@@ -1,0 +1,10 @@
+{
+    "products": {
+        "object_type": "ServiceAPIProducts",
+        "key": "ServiceAPIProducts"
+    },
+    "category": {
+        "object_type": "ServiceAPICategory",
+        "key": "ServiceAPICategory"
+    }
+}

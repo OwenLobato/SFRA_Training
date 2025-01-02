@@ -20,3 +20,5 @@ test/integration/config.json
 cartridges/*/cartridge/static
 !cartridges/plugin_magazine/cartridge/static/
 .nyc_output
+!cartridges/cartridge_test/cartridge/static/default/css/components/serviceStyles.css
+!cartridges/cartridge_test/cartridge/static/default/js

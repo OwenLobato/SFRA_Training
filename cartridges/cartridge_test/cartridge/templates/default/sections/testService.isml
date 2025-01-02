@@ -1,0 +1,65 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('css/components/serviceStyles.css');
+    assets.addJs('js/modal.js');
+    </isscript>
+
+    <h1 class="text-center my-2">All Products</h1>
+
+    <div class="services-section 1-1">
+        <p class="d-none">${JSON.stringify(pdict.data1.data.data)}</p>
+
+        <div class="product-container">
+            <isloop items=${pdict.data1.data.data} var="product">
+                <div class="product openModal" data-url="${URLUtils.https('Test-Single', 'productId', product.id)}" >
+                    <p>Id: ${product.id}</p>
+                    <p>${product.title}</p>
+                    <p>$${product.price}</p>
+                    <img src="${product.image}" alt="product-${product.id}" />
+                    <iscomment> <p>Descripcion: ${product.description}</p> </iscomment>
+                    <iscomment> <p>Categoria: ${product.category}</p> </iscomment>
+                </div>
+            </isloop>
+        </div>
+    </div>
+    <div class="services-section 1-2">
+        <p><isprint value="${pdict.data1.date.time}" formatter="dd MMM YYYY 'at' hh:mm:ss aa" timezone="SITE" /></p>
+    </div>
+
+    <h1 class="text-center my-2">Category ${pdict.category}</h1>
+
+    <div class="cat-selector">
+        <form action="${URLUtils.https('Test-Service').toString()}" method="GET" >
+            <select name="categoryName" id="categorySelect" onchange="this.form.submit()">
+                <isloop items="${['electronics', 'jewelery']}" var="category">
+                    <option value="${category}" 
+                        <isif condition="${category == pdict.category}">selected</isif>
+                    >${category}</option>
+                </isloop>
+            </select>
+        </form>
+    </div>
+
+    <div class="services-section 2-1">
+        <p class="d-none">${JSON.stringify(pdict.data2.data.data)}</p>
+
+        <div class="product-container">
+            <isloop items=${pdict.data2.data.data} var="product">
+                <div class="product">
+                    <p>Id: ${product.id}</p>
+                    <p>${product.title}</p>
+                    <p>$${product.price}</p>
+                    <img src="${product.image}" alt="product-${product.id}" />
+                    <iscomment> <p>Descripcion: ${product.description}</p> </iscomment>
+                </div>
+            </isloop>
+        </div>
+    </div>
+    <div class="services-section 2-2">
+        <p><isprint value="${pdict.data1.date.time}" style="DATE_SHORT" timezone="SITE" /></p>
+    </div>
+
+    <isinclude template="components/modal" />
+
+</isdecorate>
